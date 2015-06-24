@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "target": "es5"
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "./base.ts",
+        "./typings/angular2.d.ts",
+        "./typings/es6-promise/es6-promise.d.ts",
+        "./typings/router.d.ts",
+        "./typings/rx/rx-lite.d.ts",
+        "./typings/rx/rx.d.ts",
+        "./typings/tsd.d.ts"
+    ]
+}

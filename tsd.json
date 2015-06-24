@@ -1,0 +1,18 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "rx/rx.d.ts": {
+      "commit": "448c3509f1ae76930ebd2d79df23e288172f5a0a"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "448c3509f1ae76930ebd2d79df23e288172f5a0a"
+    },
+    "rx/rx-lite.d.ts": {
+      "commit": "448c3509f1ae76930ebd2d79df23e288172f5a0a"
+    }
+  }
+}
