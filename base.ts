@@ -1,15 +1,5 @@
-import {NgFor, Component, View, bootstrap, bind, Injectable} from 'angular2/angular2';
-import {Router, RouteConfig, RouterLink, RouterOutlet, routerInjectables} from 'angular2/router';
-
-@Component({
-  selector: 'other-page'
-})
-@View({
-  templateUrl: 'templates/other-page.html'
-})
-class OtherPage {
-
-}
+import {Component, View, bootstrap, formDirectives} from 'angular2/angular2';
+import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
 
 @Component({
   selector: 'home-page'
@@ -21,24 +11,42 @@ class HomePage {
 
 }
 
+@Component({
+  selector: 'form-test'
+})
+@View({
+  directives: [formDirectives],
+  templateUrl: 'templates/form-test.html'
+})
+class FormTest {
+  name: string;
+
+  hello(): void {
+      alert("hello, " + this.name);
+  }
+  constructor() {
+      this.name = "";
+  }
+}
+
 @RouteConfig([
   { path: "/", redirectTo: '/home'},
   { path: "/home", as: "home", component: HomePage },
-  { path: "/other", as: "other", component: OtherPage }
+  { path: "formtest", as: "formtest", component: FormTest }
 ])
 @Component({
-  selector: 'base-app'
+  selector: 'base-app',
+  appInjector: [routerInjectables]
 })
 @View({
   directives: [RouterOutlet, RouterLink],
-  templateUrl: 'templates/base-app.html'
+  templateUrl:'templates/base-app.html'
 })
-class BaseApp{
+class BaseComponent {
 
 }
 
-
-bootstrap(BaseApp, [routerInjectables])
+bootstrap(BaseComponent)
   .then(
     success => console.log(success),
     error => console.log(error)
