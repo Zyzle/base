@@ -15,38 +15,43 @@ class HomePage {
   selector: 'form-test'
 })
 @View({
-  directives: [formDirectives],
+  directives: [formDirectives, RouterLink],
   templateUrl: 'templates/form-test.html'
 })
 class FormTest {
   name: string;
+  router: Router;
+
+  constructor(router: Router){
+    this.router = router;
+    this.name = "";
+  }
 
   hello(): void {
       alert("hello, " + this.name);
   }
-  constructor() {
-      this.name = "";
-  }
 }
 
 @RouteConfig([
-  { path: "/", redirectTo: '/home'},
-  { path: "/home", as: "home", component: HomePage },
-  { path: "formtest", as: "formtest", component: FormTest }
+  { path: "/", as: "home", component: HomePage },
+  { path: "/formtest", as: "formtest", component: FormTest }
 ])
 @Component({
-  selector: 'base-app',
-  appInjector: [routerInjectables]
+  selector: 'base-app'
 })
 @View({
   directives: [RouterOutlet, RouterLink],
   templateUrl:'templates/base-app.html'
 })
 class BaseComponent {
+  router: Router;
 
+  constructor(router: Router){
+    this.router = router;
+  }
 }
 
-bootstrap(BaseComponent)
+bootstrap(BaseComponent, [routerInjectables])
   .then(
     success => console.log(success),
     error => console.log(error)
