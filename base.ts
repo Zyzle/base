@@ -1,8 +1,8 @@
 import {Component, View, bootstrap, formDirectives, NgFor} from 'angular2/angular2';
 import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
 
-import {HomePage} from 'home';
-import { FormTest } from 'form';
+import { HomePage } from 'components/home-page/home';
+import { FormTest } from 'components/simple-form/form';
 
 @RouteConfig([
   { path: "/", as: "home", component: HomePage },
@@ -13,7 +13,7 @@ import { FormTest } from 'form';
 })
 @View({
   directives: [RouterOutlet, RouterLink],
-  templateUrl:'templates/base-app.html'
+  templateUrl:'base-app.html'
 })
 class BaseComponent {
   router: Router;

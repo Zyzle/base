@@ -7,7 +7,7 @@ import { Router, RouterLink } from 'angular2/router';
 })
 @View({
   directives: [formDirectives, RouterLink, NgFor],
-  templateUrl: 'templates/form-test.html'
+  templateUrl: './components/simple-form/form-test.html'
 })
 export class FormTest {
   name: string;
