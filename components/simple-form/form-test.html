@@ -7,7 +7,7 @@
 <button (click)="clearList()">clear</button>
 <br />
 <ul>
-  <li *ng-for="#name of names">
+  <li *ng-for="#name of getNames()">
     {{ name }}
   </li>
 </ul>

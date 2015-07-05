@@ -1,9 +1,12 @@
 import { Component, View, NgFor, formDirectives } from 'angular2/angular2';
 import { Router, RouterLink } from 'angular2/router';
 
+import { PersistedList } from '../../services/PersistedList';
+
 
 @Component({
-  selector: 'form-test'
+  selector: 'form-test',
+  viewInjector: [PersistedList]
 })
 @View({
   directives: [formDirectives, RouterLink, NgFor],
@@ -11,26 +14,29 @@ import { Router, RouterLink } from 'angular2/router';
 })
 export class FormTest {
   name: string;
-  names: Array<string>;
   router: Router;
+  namesList: PersistedList;
 
-  constructor(router: Router){
+  constructor(router: Router, namesList: PersistedList){
     this.router = router;
     this.name = "";
-    this.names = localStorage.getItem("names") !== null ? JSON.parse(localStorage.getItem("names")) : [];
+    this.namesList = namesList;
+  }
+
+  getNames(): Array<string> {
+    return this.namesList.get();
   }
 
   addName(): void {
-      this.names.push(this.name);
+      this.namesList.push(this.name);
       this.name = "";
   }
 
   clearList(): void {
-    this.names = [];
-    localStorage.removeItem("names");
+    this.namesList.clear();
   }
 
   saveList(): void {
-    localStorage.setItem("names", JSON.stringify(this.names));
+    this.namesList.persist();
   }
 }
