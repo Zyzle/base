@@ -1,36 +1,8 @@
-import {Component, View, bootstrap, formDirectives} from 'angular2/angular2';
+import {Component, View, bootstrap, formDirectives, NgFor} from 'angular2/angular2';
 import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
 
-@Component({
-  selector: 'home-page'
-})
-@View({
-  templateUrl: 'templates/home-page.html'
-})
-class HomePage {
-
-}
-
-@Component({
-  selector: 'form-test'
-})
-@View({
-  directives: [formDirectives, RouterLink],
-  templateUrl: 'templates/form-test.html'
-})
-class FormTest {
-  name: string;
-  router: Router;
-
-  constructor(router: Router){
-    this.router = router;
-    this.name = "";
-  }
-
-  hello(): void {
-      alert("hello, " + this.name);
-  }
-}
+import {HomePage} from 'home';
+import { FormTest } from 'form';
 
 @RouteConfig([
   { path: "/", as: "home", component: HomePage },

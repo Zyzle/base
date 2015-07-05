@@ -2,4 +2,12 @@
 <div>
     Name: <input [(ng-model)]="name" />
 </div>
-<button (click)="hello()">Click</button>
+<button (click)="addName()">add</button>
+<button (click)="saveList()">persist</button>
+<button (click)="clearList()">clear</button>
+<br />
+<ul>
+  <li *ng-for="#name of names">
+    {{ name }}
+  </li>
+</ul>
