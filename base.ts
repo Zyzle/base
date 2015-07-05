@@ -3,13 +3,15 @@ import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from '
 
 import { HomePage } from 'components/home-page/home';
 import { FormTest } from 'components/simple-form/form';
+import { PersistedList } from './services/PersistedList';
 
 @RouteConfig([
   { path: "/", as: "home", component: HomePage },
   { path: "/formtest", as: "formtest", component: FormTest }
 ])
 @Component({
-  selector: 'base-app'
+  selector: 'base-app',
+  viewInjector: [PersistedList]
 })
 @View({
   directives: [RouterOutlet, RouterLink],

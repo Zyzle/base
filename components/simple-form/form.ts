@@ -5,8 +5,7 @@ import { PersistedList } from '../../services/PersistedList';
 
 
 @Component({
-  selector: 'form-test',
-  viewInjector: [PersistedList]
+  selector: 'form-test'
 })
 @View({
   directives: [formDirectives, RouterLink, NgFor],
