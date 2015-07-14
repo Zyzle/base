@@ -9,14 +9,18 @@
     ],
     "files": [
         "./base.ts",
+        "./components/gh-repos/ghrepos.ts",
         "./components/home-page/home.ts",
         "./components/simple-form/form.ts",
+        "./models/GhRepo.ts",
+        "./services/GithubApi.ts",
         "./services/PersistedList.ts",
         "./typings/angular2/angular2.d.ts",
         "./typings/angular2/router.d.ts",
         "./typings/es6-promise/es6-promise.d.ts",
         "./typings/rx/rx-lite.d.ts",
         "./typings/rx/rx.d.ts",
-        "./typings/tsd.d.ts"
+        "./typings/tsd.d.ts",
+        "./typings/whatwg-fetch/whatwg-fetch.d.ts"
     ]
 }
