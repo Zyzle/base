@@ -12,7 +12,7 @@
         "./components/gh-repos/ghrepos.ts",
         "./components/home-page/home.ts",
         "./components/simple-form/form.ts",
-        "./models/GhRepo.ts",
+        "./models/GhModels.ts",
         "./services/GithubApi.ts",
         "./services/PersistedList.ts",
         "./typings/angular2/angular2.d.ts",

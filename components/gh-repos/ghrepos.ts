@@ -1,8 +1,8 @@
-import { Component, View, NgFor } from 'angular2/angular2';
+import { Component, View, NgFor, Http } from 'angular2/angular2';
 import { Router } from 'angular2/router';
 
 import { GithubApi } from '../../services/GithubApi';
-import { GithubRepo } from '../../models/GhRepo';
+import { GithubRepo, GithubUser } from '../../models/GhModels';
 
 @Component({
   selector: 'gh-repos',
@@ -14,31 +14,22 @@ import { GithubRepo } from '../../models/GhRepo';
 })
 export class GhRepos {
   ghApi: GithubApi;
-  repos: Array<GithubRepo>;
+  user: GithubUser;
   router: Router;
+  http: Http;
 
-  constructor(router: Router, ghApi: GithubApi){
+  constructor(router: Router, ghApi: GithubApi, http: Http){
     this.router = router;
     this.ghApi = ghApi;
-    this.repos = [];
-    this.getRepos();
+    this.user = new GithubUser();
+    this.http = http;
+
+    this.http.get('https://api.github.com/users/zyzle')
+      .toRx()
+      .map(res => res.json())
+      .subscribe(res => this.user = GithubUser.fromJSON(res)
+    );
+
   }
 
-  getRepos(): void {
-    this.ghApi.getMyRepos()
-      .then(
-        success => success.json(),
-        error => console.log(error)
-      )
-      .then(
-        json => this.parseResponse(json),
-        error => console.log(error)
-      );
-  }
-
-  parseResponse(data: any): void {
-    for (let i = 0; i < data.length; i++) {
-        this.repos.push(GithubRepo.fromJSON(data[i]));
-    }
-  }
 }

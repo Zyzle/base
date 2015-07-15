@@ -6,7 +6,11 @@ export class GithubApi {
     this.baseUrl = "https://api.github.com";
   }
 
-  getMyRepos(): Promise<Response> {
-    return window.fetch(this.baseUrl + "/users/zyzle/repos");
+  getUserRepos(user: string): Promise<Response> {
+    return window.fetch(this.baseUrl + "/users/" + user + "/repos");
+  }
+
+  getUser(user: string): Promise<Response> {
+    return window.fetch(this.baseUrl + "/users/" + user);
   }
 }

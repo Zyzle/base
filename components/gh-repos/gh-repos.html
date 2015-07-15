@@ -1,7 +1,6 @@
 <h2>My Github Repos</h2>
 
-<ul>
-  <li *ng-for="#repo of repos">
-    {{ repo.name }}
-  </li>
-</ul>
+<div>
+<img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
+<span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
+</div>
