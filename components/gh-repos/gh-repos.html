@@ -1,6 +1,15 @@
-<h2>My Github Repos</h2>
+<h2>My Github</h2>
 
-<div>
-<img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
-<span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
+<div *ng-if="user.id != 0">
+  <img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
+  <span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
+  <div>Company: {{ user.company }}</div>
+  <div *ng-if="user.email">Contact: <a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+  <div>Since: {{ user.created_at }}</div>
+
+  <ul *ng-if="repos.length > 0">
+    <li *ng-for="#repo of repos">
+      <a href="{{ repo.html_url }}">{{ repo.name }}</a>: {{ repo.pushed_at }}
+    </li>
+  </ul>
 </div>

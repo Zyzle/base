@@ -1,4 +1,4 @@
-import {Component, View, bootstrap, formDirectives, NgFor, httpInjectables} from 'angular2/angular2';
+import {Component, View, bootstrap, httpInjectables} from 'angular2/angular2';
 import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
 
 import { HomePage } from 'components/home-page/home';
