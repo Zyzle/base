@@ -1,15 +1,54 @@
+
 <h2>My Github</h2>
 
-<div *ng-if="user.id != 0">
-  <img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">one</div>
+  <div class="mdl-cell mdl-cell--4-col">two</div>
+  <div class="mdl-cell mdl-cell--4-col">three</div>
+</div>
+
+<div class="mdl-card mdl-shadow--2dp demo-card-wide" *ng-if="user.id != 0">
+  <div class="mdl-card__title">
+    <h2>{{ user.login }}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{ user.bio }}
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button bdl-button--colored mdl-js-button mdl-js-ripple-effect"
+      href="{{ user.html_url }}">
+      Go
+    </a>
+  </div>
+</div>
+
+  <!--img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
   <span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
   <div>Company: {{ user.company }}</div>
   <div *ng-if="user.email">Contact: <a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
-  <div>Since: {{ user.created_at }}</div>
+  <div>Since: {{ user.created_at }}</div-->
 
-  <ul *ng-if="repos.length > 0">
-    <li *ng-for="#repo of repos">
-      <a href="{{ repo.html_url }}">{{ repo.name }}</a>: {{ repo.pushed_at }}
-    </li>
-  </ul>
+  <table *ng-if="repos.length > 0"
+    class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Repo</th>
+        <th>Last Push</th>
+        <th>Size (Kb)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ng-for="#repo of repos">
+        <td class="mdl-data-table__cell--non-numeric">
+          <a href="{{ repo.html_url }}">{{ repo.name }}</a>
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+          {{ repo.pushed_at }}
+        </td>
+        <td>
+          {{ repo.size }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

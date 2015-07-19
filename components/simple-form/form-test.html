@@ -1,13 +1,37 @@
-<h2>Angular Simple Form</h2>
-<div>
-    Name: <input [(ng-model)]="name" />
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+
+  <div class="mdl-cell mdl-cell--10-col mdl-shadow--2dp" style="background-color: #fff;">
+    <h2>Angular Simple Form</h2>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input [(ng-model)]="name" id="inp" class="mdl-textfield__input" type="text" />
+      <label class="mdl-textfield__label" for="inp">Name...</label>
+    </div>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      mdl-button--accent" (click)="addName()">add</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      mdl-button--accent" (click)="saveList()">persist</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      mdl-button--accent" (click)="clearList()">clear</button>
+
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Names</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ng-for="#name of getNames()">
+            <td class="mdl-data-table__cell--non-numeric">
+              {{ name }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--1-col"></div>
 </div>
-<button (click)="addName()">add</button>
-<button (click)="saveList()">persist</button>
-<button (click)="clearList()">clear</button>
-<br />
-<ul>
-  <li *ng-for="#name of getNames()">
-    {{ name }}
-  </li>
-</ul>

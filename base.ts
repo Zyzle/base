@@ -1,5 +1,6 @@
-import {Component, View, bootstrap, httpInjectables} from 'angular2/angular2';
-import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
+import {Component, View, bootstrap, httpInjectables, bind} from 'angular2/angular2';
+import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables,
+  LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 import { HomePage } from 'components/home-page/home';
 import { FormTest } from 'components/simple-form/form';
@@ -28,7 +29,7 @@ class BaseComponent {
   }
 }
 
-bootstrap(BaseComponent, [routerInjectables, httpInjectables])
+bootstrap(BaseComponent, [routerInjectables, httpInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)])
   .then(
     success => console.log(success),
     error => console.log(error)
