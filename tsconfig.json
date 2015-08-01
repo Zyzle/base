@@ -5,16 +5,19 @@
         "target": "es5"
     },
     "filesGlob": [
-        "./**/*.ts"
+        "./**/*.ts",
+        "!./node_modules/**/*.ts",
+        "!./dist/**/*.ts"
     ],
     "files": [
-        "./base.ts",
-        "./components/gh-repos/ghrepos.ts",
-        "./components/home-page/home.ts",
-        "./components/simple-form/form.ts",
-        "./models/GhModels.ts",
-        "./services/GithubApi.ts",
-        "./services/PersistedList.ts",
+        "./app/base.ts",
+        "./app/components/gh-repos/ghrepos.ts",
+        "./app/components/home-page/home.ts",
+        "./app/components/simple-form/form.ts",
+        "./app/models/GhModels.ts",
+        "./app/services/BaseRestService.ts",
+        "./app/services/GithubApi.ts",
+        "./app/services/PersistedList.ts",
         "./typings/angular2/angular2.d.ts",
         "./typings/angular2/router.d.ts",
         "./typings/es6-promise/es6-promise.d.ts",

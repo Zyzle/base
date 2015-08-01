@@ -1,0 +1,36 @@
+<paper-header-panel class="pageTitle flex" mode="seamed">
+  <paper-toolbar class="pageTitleBackground">
+    <h2>Angular Simple Form</h2>
+  </paper-toolbar>
+</paper-header-panel>
+
+<paper-material elevation="1">
+
+  <p>Currently this doesn't work properly, I have a feeling its due to the
+    [(ng-model)] not being able to bind correctly to the polymer element but
+    I'll wait until <a href="https://github.com/angular/angular/issues/2992">#2992<a>
+    lands
+  </p>
+
+  <!-- [(ng-model)]="name" -->
+  <paper-input label="Name..." (keyup)="somemethod(bindValue)"></paper-input>
+
+  <paper-button raised (click)="addName()">add</paper-button>
+  <paper-button raised (click)="saveList()">persist</paper-button>
+  <paper-button raised (click)="clearList()">clear</paper-button>
+
+  <table >
+    <thead>
+      <tr>
+        <th>Names</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ng-for="#name of getNames()">
+        <td>
+          {{ name }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</paper-material>

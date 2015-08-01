@@ -1,0 +1,39 @@
+<paper-drawer-panel id="paperDrawerPanel">
+
+  <paper-scroll-header-panel drawer fixed id="menuPanel">
+
+    <paper-toolbar id="drawerToolbar">
+      <span class="paper-font-title">Menu</span>
+    </paper-toolbar>
+
+    <paper-menu class="list">
+      <paper-item [router-link]="['/home']">home</paper-item>
+      <paper-item [router-link]="['/formtest']">simple form</paper-item>
+      <paper-item [router-link]="['/ghrepos']">github repos</paper-item>
+    </paper-menu>
+
+  </paper-scroll-header-panel>
+
+  <paper-scroll-header-panel main condenses keep-condensed-header>
+
+    <paper-toolbar id="mainToolbar" class="tall">
+      <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+      <span class="flex"></span>
+      <paper-icon-button icon="search"></paper-icon-button>
+
+      <div class="middle middle-container center horizontal layout">
+        <div class="app-name">Base</div>
+      </div>
+
+      <div class="bottom bottom-container center horizontal layout">
+        <div class="bottom-title paper-font-subhead">A website I made with Polymer and Angular 2</div>
+      </div>
+    </paper-toolbar>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </paper-scroll-header-panel>
+
+</paper-drawer-panel>

@@ -2,8 +2,8 @@ import {Component, View, bootstrap, httpInjectables, bind} from 'angular2/angula
 import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables,
   LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-import { HomePage } from 'components/home-page/home';
-import { FormTest } from 'components/simple-form/form';
+import { HomePage } from './components/home-page/home';
+import { FormTest } from './components/simple-form/form';
 import { GhRepos } from './components/gh-repos/ghrepos';
 
 import { PersistedList } from './services/PersistedList';
@@ -29,7 +29,8 @@ class BaseComponent {
   }
 }
 
-bootstrap(BaseComponent, [routerInjectables, httpInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)])
+bootstrap(BaseComponent, [routerInjectables, httpInjectables,
+  bind(LocationStrategy).toClass(HashLocationStrategy)])
   .then(
     success => console.log(success),
     error => console.log(error)

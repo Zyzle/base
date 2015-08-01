@@ -1,4 +1,4 @@
-import { Component, View, NgFor, formDirectives } from 'angular2/angular2';
+import { Component, View, NgFor, ElementRef, formDirectives } from 'angular2/angular2';
 import { Router, RouterLink } from 'angular2/router';
 
 import { PersistedList } from '../../services/PersistedList';
@@ -15,11 +15,18 @@ export class FormTest {
   name: string;
   router: Router;
   namesList: PersistedList;
+  eleRef: ElementRef;
 
-  constructor(router: Router, namesList: PersistedList){
+  constructor(router: Router, namesList: PersistedList, eleRef: ElementRef){
     this.router = router;
+    this.eleRef = eleRef;
     this.name = "";
     this.namesList = namesList;
+  }
+
+  somemethod(inp: any): void {
+    console.log(inp);
+    console.log("keyup!");
   }
 
   getNames(): Array<string> {

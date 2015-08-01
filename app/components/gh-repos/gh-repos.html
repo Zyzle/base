@@ -1,0 +1,53 @@
+<paper-header-panel class="pageTitle flex" mode="seamed">
+  <paper-toolbar class="pageTitleBackground">
+    <h2>My Github</h2>
+  </paper-toolbar>
+</paper-header-panel>
+
+<paper-material elevation="1">
+
+
+  <div *ng-if="user.id != 0">
+    <div>
+      <h2>{{ user.login }}</h2>
+    </div>
+    <div>
+      {{ user.bio }}
+    </div>
+    <div>
+      <a href="{{ user.html_url }}">Go</a>
+    </div>
+  </div>
+
+    <img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
+    <span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
+    <div>Company: {{ user.company }}</div>
+    <div *ng-if="user.email">Contact: <a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+    <div>Since: {{ user.created_at }}</div>
+
+    <paper-material elevation="2">
+    <table *ng-if="repos.length > 0" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Repo</th>
+          <th>Last Push</th>
+          <th>Size (Kb)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ng-for="#repo of repos">
+          <td>
+            <a href="{{ repo.html_url }}">{{ repo.name }}</a>
+          </td>
+          <td>
+            {{ repo.pushed_at }}
+          </td>
+          <td>
+            {{ repo.size }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </paper-material>
+  </div>
+</paper-material>
