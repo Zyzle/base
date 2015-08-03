@@ -1,10 +1,10 @@
 import {Http} from 'angular2/angular2';
 import {Observable} from 'rx';
 
-import {BaseRestService} from './BaseRestService';
-import { GithubRepo, GithubUser } from '../models/GhModels';
+import {RestService} from './RestService';
+import {GithubRepo, GithubUser} from '../models/GhModels';
 
-export class GithubApi extends BaseRestService {
+export class GithubApi extends RestService {
   constructor(http: Http){
     super('https://api.github.com/', http);
   }

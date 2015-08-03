@@ -6,8 +6,11 @@
 
 <paper-material elevation="1">
 
+  <div *ng-if="loadingUser">
+    <p>LOADING</p>
+  </div>
 
-  <div *ng-if="user.id != 0">
+  <div *ng-if="!loadingUser">
     <div>
       <h2>{{ user.login }}</h2>
     </div>
@@ -17,7 +20,6 @@
     <div>
       <a href="{{ user.html_url }}">Go</a>
     </div>
-  </div>
 
     <img src="{{ user.avatar_url }}" alt="image" style="width: 100px; height: 100px;"/>
     <span><a href="{{ user.html_url }}">{{ user.login }}</a> ({{ user.name }})</span>
@@ -25,7 +27,9 @@
     <div *ng-if="user.email">Contact: <a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
     <div>Since: {{ user.created_at }}</div>
 
-    <paper-material elevation="2">
+  </div>
+
+    <!--paper-material elevation="2">
     <table *ng-if="repos.length > 0" style="width: 100%;">
       <thead>
         <tr>
@@ -48,6 +52,12 @@
         </tr>
       </tbody>
     </table>
-  </paper-material>
+  </paper-material-->
   </div>
+</paper-material>
+
+<paper-material elevation="1" *ng-for="#repo of repos">
+    <p>{{ repo.name }}</p>
+    <p>{{ repo.size }}Kb</p>
+    <p>{{ repo.pushed_at }}</p>
 </paper-material>

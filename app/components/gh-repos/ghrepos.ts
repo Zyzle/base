@@ -1,5 +1,5 @@
-import { Component, View, NgFor, NgIf, Http } from 'angular2/angular2';
-import { Router } from 'angular2/router';
+import {Component, View, NgFor, NgIf, Http} from 'angular2/angular2';
+import {Router} from 'angular2/router';
 
 import {GithubApi} from '../../services/GithubApi';
 import {GithubRepo, GithubUser} from '../../models/GhModels';
@@ -15,11 +15,11 @@ import {GithubRepo, GithubUser} from '../../models/GhModels';
 export class GhRepos {
   user: GithubUser;
   repos: Array<GithubRepo>;
-  router: Router;
-  http: Http;
   ghApi: GithubApi;
 
-  constructor(router: Router, http: Http){
+  loadingUser: boolean = true;
+
+  constructor(private router: Router, private http: Http){
     this.router = router;
     this.http = http;
     this.user = new GithubUser();
@@ -27,7 +27,10 @@ export class GhRepos {
     this.ghApi = new GithubApi(this.http);
 
     this.ghApi.getUser('zyzle')
-      .subscribe(res => this.user = GithubUser.fromJSON(res));
+      .subscribe(res => {
+        this.user = GithubUser.fromJSON(res)
+        this.loadingUser = false;
+      });
 
     this.ghApi.getUserRepos('zyzle')
       .subscribe(res => this.buildRepos(res));

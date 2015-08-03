@@ -6,4 +6,21 @@
 
 <paper-material elevation="1">
   <p>not much to see right now, try the menu bar links</p>
+
+  <form *ng-if="!isLoggedIn" (ng-submit)="login()" #f="form">
+    <p>
+      <label for="userName">Username</label>
+      <input type="text" id="userName" ng-control="userName" [(ng-model)]="model.userName" required>
+      <show-error control="userName" [errors]="['required']"></show-error>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" id="password" ng-control="password" [(ng-model)]="model.password" required>
+      <show-error control="password" [errors]="['required']"></show-error>
+    </p>
+    <button type="submit" [disabled]="!f.form.valid">Submit</button>
+  </form>
+
+  <button *ng-if="isLoggedIn" (click)="logout()">Logout</button>
+
 </paper-material>

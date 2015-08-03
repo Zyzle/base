@@ -5,13 +5,15 @@ import {Router, RouterOutlet, RouteConfig, RouterLink, routerInjectables,
 import { HomePage } from './components/home-page/home';
 import { FormTest } from './components/simple-form/form';
 import { GhRepos } from './components/gh-repos/ghrepos';
+import { SnippetsList } from './components/snippets-list/SnippetsList';
 
 import { PersistedList } from './services/PersistedList';
 
 @RouteConfig([
   { path: "/", as: "home", component: HomePage },
   { path: "/formtest", as: "formtest", component: FormTest },
-  { path: "/ghrepos", as: "ghrepos", component: GhRepos }
+  { path: "/ghrepos", as: "ghrepos", component: GhRepos },
+  { path: "/snippets", as: "snippets", component: SnippetsList }
 ])
 @Component({
   selector: 'base-app',
