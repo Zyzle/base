@@ -3,11 +3,33 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material'
 };
 
+const materialPackages:string[] = [
+  'button',
+  'card',
+  'core',
+  'icon',
+  'input',
+  'list',
+  'sidenav',
+  'toolbar'
+];
+
+function createMaterialConfig(packages:string[]):any {
+  return packages.reduce((packageConfig:any, packageName:string) => {
+    packageConfig[`@angular2-material/${packageName}`] = {
+      format: 'cjs',
+      defaultExtension: 'js',
+      main: packageName
+    };
+    return packageConfig;
+  }, {});
+}
+
 /** User packages configuration. */
-const packages: any = {
-};
+const packages: any = createMaterialConfig(materialPackages);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
