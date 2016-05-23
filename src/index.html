@@ -11,9 +11,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="dots.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      height: 100vh;
+      margin: 0;
+    }
+
+    base-app {
+      height: inherit;
+    }
+
+    .centered-container {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
-  <base-app>Loading...</base-app>
+  <base-app>
+    <div class="centered-container">
+      <div class="dots-loader">Loading...</div>
+    </div>
+  </base-app>
 
 
 

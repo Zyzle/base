@@ -4,20 +4,11 @@
       Navigation
     </md-toolbar>
     <md-nav-list>
-      <a md-list-item>
-        <md-icon md-list-icon>home</md-icon>
-        <span md-line>Home</span>
-        <span md-line class="secondary">Go Home</span>
-      </a>
-      <a md-list-item>
-        <md-icon md-list-icon>lock_outline</md-icon>
-        <span md-line>Login</span>
-        <span md-line class="secondary">Login to base</span>
-      </a>
-      <a md-list-item>
-        <md-icon md-list-icon>content_cut</md-icon>
-        <span md-line>Snippets</span>
-        <span md-line class="secondary">Code Snippets</span>
+      <a md-list-item *ngFor="let item of navItems"
+        [routerLink]="item.route" (click)="sidenav.close()">
+        <md-icon md-list-icon>{{item.icon}}</md-icon>
+        <span md-line>{{item.label}}</span>
+        <span md-line class="secondary">{{item.description}}</span>
       </a>
     </md-nav-list>
   </md-sidenav>
@@ -27,5 +18,7 @@
     </button>
     Base
   </md-toolbar>
+
+  <router-outlet></router-outlet>
 
 </md-sidenav-layout>
