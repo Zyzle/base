@@ -15,8 +15,8 @@ describe('App: Base', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'base works!\'',
+  it('should contain the 3 nav components',
       inject([BaseAppComponent], (app: BaseAppComponent) => {
-    //expect(app.title).toEqual('base works!');
+    expect(app.navItems.length).toEqual(3);
   }));
 });
