@@ -1,0 +1,14 @@
+import { BasePage } from './base.po';
+
+describe('base App', () => {
+  let page: BasePage;
+
+  beforeEach(() => {
+    page = new BasePage();
+  });
+
+  it('should display message saying app works', () => {
+    page.navigateTo();
+    //expect(page.getParagraphText()).toEqual('base works!');
+  });
+});

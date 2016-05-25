@@ -6,6 +6,9 @@ const map: any = {
   '@angular2-material': 'vendor/@angular2-material'
 };
 
+/** User packages configuration. */
+const packages: any = {};
+
 const materialPackages:string[] = [
   'button',
   'card',
@@ -17,19 +20,10 @@ const materialPackages:string[] = [
   'toolbar'
 ];
 
-function createMaterialConfig(packages:string[]):any {
-  return packages.reduce((packageConfig:any, packageName:string) => {
-    packageConfig[`@angular2-material/${packageName}`] = {
-      format: 'cjs',
-      defaultExtension: 'js',
-      main: packageName
-    };
-    return packageConfig;
-  }, {});
-}
+materialPackages.forEach((pkg) => {
+  packages[`@angular2-material/${pkg}`] = {main: `${pkg}.js`};
+});
 
-/** User packages configuration. */
-const packages: any = createMaterialConfig(materialPackages);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************

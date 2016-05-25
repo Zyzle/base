@@ -11,7 +11,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="dots.css" rel="stylesheet">
   <style type="text/css">
     body {
       height: 100vh;
@@ -30,12 +29,39 @@
       align-items: center;
       justify-content: center;
     }
+
+    .loader {
+      color: #222;
+      font-family: Consolas, Menlo, Monaco, monospace;
+      font-weight: bold;
+      font-size: 20vh;
+      opacity: 0.8;
+    }
+
+    .loader span {
+      display: inline-block;
+      animation: pulse 0.4s alternate infinite ease-in-out;
+    }
+
+    .loader span:nth-child(odd) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes pulse {
+      to {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+
   </style>
 </head>
 <body>
   <base-app>
     <div class="centered-container">
-      <div class="dots-loader">Loading...</div>
+      <div class="loader">
+        <span>{</span><span>}</span>
+      </div>
     </div>
   </base-app>
 
