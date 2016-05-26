@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FORM_DIRECTIVES, ControlGroup, FormBuilder } from '@angular/common';
+import { ControlGroup, FormBuilder, Validators } from '@angular/common';
 
 import { MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
@@ -12,20 +12,31 @@ import { MdToolbar } from '@angular2-material/toolbar';
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css'],
   directives: [
-    FORM_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     MD_INPUT_DIRECTIVES,
     MdButton,
     MdToolbar
+  ],
+  providers: [
+    FormBuilder
   ]
 })
 export class LoginComponent implements OnInit {
 
   loginForm: ControlGroup;
 
-  constructor() {}
+  constructor(private formBuilder:FormBuilder) {
+    this.loginForm = formBuilder.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
+  }
+
+  login() {
+    // do login
   }
 
 }

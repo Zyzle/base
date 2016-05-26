@@ -2,15 +2,17 @@
   <md-card class="login-card">
     <md-toolbar color="accent">Login</md-toolbar>
     <md-card-content>
-      <div>
-        <md-input placeholder="Username"></md-input>
-      </div>
-      <div>
-        <md-input placeholder="Password" type="password"></md-input>
-      </div>
-      <div class="loginctrl">
-        <button color="primary" md-raised-button>Login</button>
-      </div>
+      <form [ngFormModel]="loginForm" (ngSubmit)="login()">
+        <div>
+          <md-input placeholder="Username" ngControl="username"></md-input>
+        </div>
+        <div>
+          <md-input placeholder="Password" ngControl="password" type="password"></md-input>
+        </div>
+        <div class="loginctrl">
+          <button color="primary" md-raised-button>Login</button>
+        </div>
+      </form>
     </md-card-content>
   </md-card>
 </div>
