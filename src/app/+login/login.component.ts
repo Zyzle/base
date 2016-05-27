@@ -30,13 +30,17 @@ export class LoginComponent implements OnInit {
       'username': ['', Validators.required],
       'password': ['', Validators.required]
     });
+
+    this.loginForm.valueChanges.subscribe(data => {
+      console.log(data);
+    });
   }
 
   ngOnInit() {
   }
 
   login() {
-    // do login
+    console.log("doing login");
   }
 
 }

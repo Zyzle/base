@@ -14,9 +14,24 @@
     "target": "es5",
     "inlineSources": true
   },
-
   "files": [
     "main.ts",
-    "typings.d.ts"
-  ]
+    "typings.d.ts",
+    "app/+login/index.ts",
+    "app/+login/login.component.ts",
+    "app/+login/shared/index.ts",
+    "app/base.component.ts",
+    "app/environment.ts",
+    "app/index.ts",
+    "app/shared/index.ts"
+  ],
+  "filesGlob": [
+    "main.ts",
+    "typings.d.ts",
+    "app/**/*.ts",
+    "!app/**/*.spec.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
 }
