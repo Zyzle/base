@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlGroup, FormBuilder, Validators } from '@angular/common';
+import { AbstractControl, ControlGroup, FormBuilder, Validators } from '@angular/common';
 
 import { MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: ControlGroup;
 
+  private validationMessages;
+
+  private formError;
+
   constructor(private formBuilder:FormBuilder) {
     this.loginForm = formBuilder.group({
       'username': ['', Validators.required],
@@ -32,15 +36,44 @@ export class LoginComponent implements OnInit {
     });
 
     this.loginForm.valueChanges.subscribe(data => {
-      console.log(data);
+      this.checkChanged(data);
     });
+
+    this.formError = {
+      'username': '',
+      'password': ''
+    };
+
+    this.validationMessages = {
+      'username': {
+        'required': 'Please enter your username'
+      },
+      'password': {
+        'required': 'Please enter your password'
+      }
+    };
+
+  }
+
+  checkChanged(form) {
+    for (let control in this.loginForm.controls){
+      let hasError = this.loginForm.controls[control].dirty && !this.loginForm.controls[control].valid;
+      this.formError[control] = '';
+      if (hasError){
+        for (let key in this.loginForm.controls[control].errors){
+          if (this.loginForm.controls[control].errors.hasOwnProperty(key)){
+            this.formError[control] += this.validationMessages[control][key] + ' ';
+          }
+        }
+      }
+    }
   }
 
   ngOnInit() {
   }
 
   login() {
-    console.log("doing login");
+
   }
 
 }

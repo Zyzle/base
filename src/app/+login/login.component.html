@@ -4,10 +4,14 @@
     <md-card-content>
       <form [ngFormModel]="loginForm" (ngSubmit)="login()">
         <div>
-          <md-input placeholder="Username" ngControl="username"></md-input>
+          <md-input placeholder="Username" ngControl="username">
+            <md-hint *ngIf="formError.username">{{ formError.username }}</md-hint>
+          </md-input>
         </div>
         <div>
-          <md-input placeholder="Password" ngControl="password" type="password"></md-input>
+          <md-input placeholder="Password" ngControl="password" type="password">
+            <md-hint *ngIf="formError.password">{{ formError.password }}</md-hint>
+          </md-input>
         </div>
         <div class="loginctrl">
           <button color="primary" md-raised-button type="submit">Login</button>

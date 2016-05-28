@@ -7,3 +7,5 @@
 
 This is just a bunch of Angular2 experiments mostly around using rest-apis from various sources to
 provide information to the user.
+
+Right now it is being re-written to bring it up to date with the release candidate version of angular 2
