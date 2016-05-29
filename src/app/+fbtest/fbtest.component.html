@@ -1,0 +1,7 @@
+<pre>{{(af.auth | async) | json}}</pre>
+
+<button (click)="login()">Login</button>
+
+<ul *ngFor="let item of items | async">
+  <li>{{item.$value}}</li>
+</ul>

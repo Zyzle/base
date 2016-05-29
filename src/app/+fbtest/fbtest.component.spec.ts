@@ -7,27 +7,36 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { LoginComponent } from './login.component';
 
-describe('Component: Login', () => {
+import { AngularFire } from 'angularfire2';
+
+import { FbtestComponent } from './fbtest.component';
+
+class MockAngularFire {
+  constructor() {}
+}
+
+describe('Component: Fbtest', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [LoginComponent]);
+  beforeEachProviders(() => [
+    provide(AngularFire, {useClass: MockAngularFire}),
+    FbtestComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([LoginComponent],
-      (component: LoginComponent) => {
+  it('should inject the component', inject([FbtestComponent],
+      (component: FbtestComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(LoginComponentTestController)
+    return builder.createAsync(FbtestComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(LoginComponent));
+        let query = fixture.debugElement.query(By.directive(FbtestComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,10 +46,9 @@ describe('Component: Login', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-login></app-login>
+    <app-fbtest></app-fbtest>
   `,
-  directives: [LoginComponent]
+  directives: [FbtestComponent]
 })
-class LoginComponentTestController {
+class FbtestComponentTestController {
 }
-

@@ -1,0 +1,26 @@
+<span class="aligner">
+  <button *ngIf="!(auth | async)" md-mini-fab (click)="login()">
+    <md-icon>account_circle</md-icon>
+  </button>
+
+  <span class="username" *ngIf="auth | async">
+    {{authData.google.cachedUserProfile.given_name}}
+  </span>
+  <span *ngIf="auth | async">
+    <img [src]="authData.google.profileImageURL"
+      class="user-pic" alt="an image"
+      (click)="toggleCardOpen()" />
+
+    <md-card *ngIf="authCardOpen">
+      <md-card-title-group>
+          <md-card-title>{{authData.google.displayName}}</md-card-title>
+          <md-card-subtitle>Subtitle</md-card-subtitle>
+          <img md-card-md-image [src]="authData.google.profileImageURL" />
+      </md-card-title-group>
+      <md-card-actions align="end">
+        <button md-raised-button color="accent" (click)="logout()">LOGOUT</button>
+      </md-card-actions>
+    </md-card>
+  </span>
+
+</span>

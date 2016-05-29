@@ -1,0 +1,35 @@
+md-card {
+  position: fixed;
+  margin-left: -310px;
+  width: 300px;
+}
+
+md-card-title {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+md-card-actions {
+  padding-right: 8px;
+  margin-top: 10px;
+}
+
+.aligner {
+  align-items: center;
+  display: flex;
+}
+
+/** Same as mini-fab shadow */
+.user-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.username {
+  margin: 0 5px;
+}

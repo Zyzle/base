@@ -3,11 +3,18 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  '@angular2-material': 'vendor/@angular2-material'
+  '@angular2-material': 'vendor/@angular2-material',
+  'firebase': 'vendor/firebase/lib/firebase-web.js',
+  'angularfire2': 'vendor/angularfire2'
 };
 
 /** User packages configuration. */
-const packages: any = {};
+const packages: any = {
+  angularfire2: {
+    defaultExtension: 'js',
+    main: 'angularfire2.js'
+  }
+};
 
 const materialPackages:string[] = [
   'button',
@@ -47,6 +54,8 @@ const barrels: string[] = [
   'app/shared',
   'app/+login',
   'app/navigation',
+  'app/+fbtest',
+  'app/auth',
   /** @cli-barrel */
 ];
 

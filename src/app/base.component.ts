@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './+login';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+
 
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MdButton } from '@angular2-material/button';
@@ -8,6 +8,10 @@ import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdIcon } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
+
+import { FbtestComponent } from './+fbtest';
+
+import { AuthComponent } from './auth';
 
 @Component({
   moduleId: module.id,
@@ -20,7 +24,8 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
     MD_LIST_DIRECTIVES,
     MdToolbar,
     MdIcon,
-    MdButton
+    MdButton,
+    AuthComponent
   ],
   providers: [
     MdIconRegistry,
@@ -28,7 +33,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
   ]
 })
 @Routes([
-  {path: '/login', component: LoginComponent}
+  {path: '/fbtest', component: FbtestComponent}
 ])
 export class BaseAppComponent {
 
@@ -40,10 +45,10 @@ export class BaseAppComponent {
       description: 'Go Home'
     },
     {
-      route: ['/login'],
-      label: 'Login',
-      icon: 'lock_outline',
-      description: 'Login to Base'
+      route: ['/fbtest'],
+      label: 'Firebase Test',
+      icon: 'storage',
+      description: 'Firebase Tests'
     },
     {
       route: ['/snippet'],
