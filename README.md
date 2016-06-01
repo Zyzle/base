@@ -1,6 +1,6 @@
 # Base
 
-
+[![Build Status](https://travis-ci.org/Zyzle/base.svg?branch=master)](https://travis-ci.org/Zyzle/base)
 [![Dependency Status](https://david-dm.org/zyzle/base.svg)](https://david-dm.org/zyzle/base)
 [![devDependency Status](https://david-dm.org/zyzle/base/dev-status.svg)](https://david-dm.org/zyzle/base#info=devDependencies)
 
