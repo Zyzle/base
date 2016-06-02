@@ -52,7 +52,6 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  'app/+login',
   'app/navigation',
   'app/+fbtest',
   'app/auth',
