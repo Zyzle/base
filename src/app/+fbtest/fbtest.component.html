@@ -1,7 +1,7 @@
-<pre>{{(af.auth | async) | json}}</pre>
-
-<button (click)="login()">Login</button>
-
-<ul *ngFor="let item of items | async">
-  <li>{{item.$value}}</li>
-</ul>
+<h1>{{ item | async | json }}</h1>
+<input type="text" #newname placeholder="Name" />
+<input type="text" #newsize placeholder="Size" />
+<br />
+<button (click)="save(newname.value)">Set Name</button>
+<button (click)="update(newsize.value)">Update Size</button>
+<button (click)="delete()">Delete</button>

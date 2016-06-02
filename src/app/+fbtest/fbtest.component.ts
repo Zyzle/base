@@ -10,17 +10,30 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class FbtestComponent implements OnInit {
 
-  items: FirebaseListObservable<any[]>;
+  items: FirebaseListObservable<any>;
 
   constructor(public af: AngularFire) {
-    //this.items = af.database.list('/items');
+    this.items = af.database.list('/items');
   }
 
   ngOnInit() {
+
   }
 
-  login(){
-    this.af.auth.login();
+  add(newName: string) {
+    this.items.push({text: newName});
+  }
+
+  update(newSize: string, key: string) {
+    this.items.update(key, {size: newSize});
+  }
+
+  deleteItem(key: string) {
+    this.items.remove(key);
+  }
+
+  deleteEverything() {
+    this.items.remove();
   }
 
 }
