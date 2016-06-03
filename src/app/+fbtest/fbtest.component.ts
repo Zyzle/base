@@ -13,11 +13,11 @@ export class FbtestComponent implements OnInit {
   items: FirebaseListObservable<any>;
 
   constructor(public af: AngularFire) {
-    this.items = af.database.list('/items');
+
   }
 
   ngOnInit() {
-
+    this.items = this.af.database.list('/items');
   }
 
   add(newName: string) {
