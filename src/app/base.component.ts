@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import { HomeComponent } from './+home';
 
 
 import { MdToolbar } from '@angular2-material/toolbar';
@@ -33,7 +34,9 @@ import { AuthComponent } from './auth';
   ]
 })
 @Routes([
-  {path: '/fbtest', component: FbtestComponent}
+  {path: '/', component: HomeComponent},
+  {path: '/fbtest', component: FbtestComponent},
+
 ])
 export class BaseAppComponent {
 

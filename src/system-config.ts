@@ -55,6 +55,7 @@ const barrels: string[] = [
   'app/navigation',
   'app/+fbtest',
   'app/auth',
+  'app/+home',
   /** @cli-barrel */
 ];
 

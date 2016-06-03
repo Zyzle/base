@@ -1,0 +1,20 @@
+:root {
+  --dark-primary-color:       #1976D2;
+  --default-primary-color:    #2196F3;
+  --light-primary-color:      #BBDEFB;
+  --text-primary-color:       #FFFFFF;
+  --accent-color:             #FFC107;
+  --primary-background-color: #BBDEFB;
+  --primary-text-color:       #212121;
+  --secondary-text-color:     #727272;
+  --disabled-text-color:      #BDBDBD;
+  --divider-color:            #B6B6B6;
+}
+
+body {
+  color: var(--primary-text-color);
+}
+
+.page-subhead {
+  color: var(--secondary-text-color);
+}
