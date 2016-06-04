@@ -17,6 +17,11 @@
   "files": [
     "main.ts",
     "typings.d.ts",
+    "app/+admin/admin.component.ts",
+    "app/+admin/index.ts",
+    "app/+admin/language-admin/index.ts",
+    "app/+admin/language-admin/language-admin.component.ts",
+    "app/+admin/shared/index.ts",
     "app/+fbtest/fbtest.component.ts",
     "app/+fbtest/index.ts",
     "app/+fbtest/shared/index.ts",

@@ -19,7 +19,10 @@ import { FirebaseAuth } from 'angularfire2';
   ],
   providers: [
     MdIconRegistry
-  ]
+  ]/*,
+  host: {
+    '(body:click)': 'cardClose()'
+  }*/
 })
 export class AuthComponent implements OnInit {
 
@@ -42,7 +45,12 @@ export class AuthComponent implements OnInit {
     if (this.authData){
       this.authCardOpen = !this.authCardOpen;
     }
+  }
 
+  cardClose(){
+    if (this.authCardOpen){
+      this.authCardOpen = false;
+    }
   }
 
   login() {

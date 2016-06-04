@@ -1,0 +1,26 @@
+<md-card>
+  <md-toolbar color="accent">
+    Snippets
+  </md-toolbar>
+  <div class="card-content">
+    <form (ngSubmit)="onSubmit()" #languageForm="ngForm">
+      <md-input required placeholder="Language"
+        [(ngModel)]="newLanguage"
+        ngControl="newLang">
+      </md-input>
+      <button type="submit" md-raised-button color="primary"
+        [disabled]="!languageForm.form.valid">
+        ADD
+      </button>
+    </form>
+    <md-list dense>
+      <h3>Available Languages</h3>
+      <md-list-item *ngFor="let language of languages | async">
+        <span md-line> {{language.$value}} </span>
+        <button md-icon-button (click)="remove(language.$key)">
+          <md-icon>delete</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </div>
+</md-card>

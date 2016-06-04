@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { HomeComponent } from './+home';
+import { AdminComponent } from './+admin';
 
 
 import { MdToolbar } from '@angular2-material/toolbar';
@@ -36,6 +37,7 @@ import { AuthComponent } from './auth';
 @Routes([
   {path: '/', component: HomeComponent},
   {path: '/fbtest', component: FbtestComponent},
+  {path: '/admin', component: AdminComponent}
 
 ])
 export class BaseAppComponent {
@@ -52,6 +54,12 @@ export class BaseAppComponent {
       label: 'Firebase Test',
       icon: 'storage',
       description: 'Firebase Tests'
+    },
+    {
+      route: ['/admin'],
+      label: 'Admin',
+      icon: 'settings',
+      description: 'Various site settings'
     },
     {
       route: ['/snippet'],
