@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { HomeComponent } from './+home';
 import { AdminComponent } from './+admin';
+import { HighlightTestComponent } from './+highlight-test';
 
 
 import { MdToolbar } from '@angular2-material/toolbar';
@@ -37,7 +38,8 @@ import { AuthComponent } from './auth';
 @Routes([
   {path: '/', component: HomeComponent},
   {path: '/fbtest', component: FbtestComponent},
-  {path: '/admin', component: AdminComponent}
+  {path: '/admin', component: AdminComponent},
+  {path: '/highlight-test', component: HighlightTestComponent}
 
 ])
 export class BaseAppComponent {
@@ -66,6 +68,12 @@ export class BaseAppComponent {
       label: 'Snippets',
       icon: 'content_cut',
       description: 'Code Snippets'
+    },
+    {
+      route: ['/highlight-test'],
+      label: 'Highlight JS',
+      icon: 'code',
+      description: 'Code highlighting with HighlightJS'
     }
   ];
 

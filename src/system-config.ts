@@ -5,11 +5,16 @@
 const map: any = {
   '@angular2-material': 'vendor/@angular2-material',
   'firebase': 'vendor/firebase/lib/firebase-web.js',
-  'angularfire2': 'vendor/angularfire2'
+  'angularfire2': 'vendor/angularfire2',
+  'highlight': 'vendor/highlightjs'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  highlight: {
+    format: 'amd',
+    main: 'highlight.pack.js'
+  },
   angularfire2: {
     defaultExtension: 'js',
     main: 'angularfire2.js'
@@ -58,6 +63,7 @@ const barrels: string[] = [
   'app/+home',
   'app/+admin',
   'app/+admin/language-admin',
+  'app/+highlight-test',
   /** @cli-barrel */
 ];
 

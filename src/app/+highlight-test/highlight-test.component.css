@@ -1,0 +1,109 @@
+/*!
+ * Basic styles for highlight js may need adapting later
+ */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-code,
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-tag {
+  color: #062873;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #bb60d5;
+}
+
+.hljs-string,
+.hljs-bullet {
+  color: #91ba61;
+}
+
+.hljs-type,
+.hljs-title,
+.hljs-section,
+.hljs-quote,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #ebb060;
+}
+
+.hljs-attribute {
+  color: #4070a0;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet {
+  color: #f44336;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #78ccf0;
+}
+
+.hljs-literal {
+  color: #bb60d5 ;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-code {
+  color: #b0bec5;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #517918;
+  font-weight: bold;
+}
+
+.hljs-meta {
+  color: #ff5370;
+}
+
+.hljs-deletion {
+  background-color: #ff5370;
+  color: #333;
+}
+
+.hljs-addition {
+  background-color: #40a070;
+  color: #333;
+}
+
+.hljs-doctype {
+  color: #40a070;
+}
+
+.hljs-value {
+  color: #c65d09
+}
+
+.hljs a {
+  color: inherit;
+}
+
+.hljs a:focus,
+.hljs a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
