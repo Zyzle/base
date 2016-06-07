@@ -16,7 +16,7 @@ const packages: any = {
   }
 };
 
-const materialPackages:string[] = [
+const materialPackages: string[] = [
   'button',
   'card',
   'core',

@@ -5,7 +5,6 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import {MdButton} from '@angular2-material/button/button';
 import {MD_CARD_DIRECTIVES} from '@angular2-material/card/card';
 import { MdIcon } from '@angular2-material/icon';
-import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list/list';
 import {MdToolbar} from '@angular2-material/toolbar/toolbar';
@@ -40,7 +39,7 @@ export class LanguageAdminComponent implements OnInit {
     this.newLanguage = '';
   }
 
-  remove(key:string) {
+  remove(key: string) {
     this.languages.remove(key);
   }
 

@@ -42,13 +42,13 @@ export class AuthComponent implements OnInit {
   }
 
   toggleCardOpen() {
-    if (this.authData){
+    if (this.authData) {
       this.authCardOpen = !this.authCardOpen;
     }
   }
 
-  cardClose(){
-    if (this.authCardOpen){
+  cardClose() {
+    if (this.authCardOpen) {
       this.authCardOpen = false;
     }
   }
