@@ -4,7 +4,9 @@ import {HTTP_PROVIDERS} from '@angular/http';
 import { FIREBASE_PROVIDERS, AuthProviders, AuthMethods, defaultFirebase,
   firebaseAuthConfig } from 'angularfire2';
 
-import { BaseAppComponent, environment } from './app/';
+import { APP_ROUTER_PROVIDERS } from './app/app.routes';
+import { BaseAppComponent } from './app/base.component';
+import { environment } from './app/environment';
 
 if (environment.production) {
   enableProdMode();
@@ -18,5 +20,6 @@ bootstrap(BaseAppComponent, [
   firebaseAuthConfig({
     provider: AuthProviders.Google,
     method: AuthMethods.Popup
-  })
+  }),
+  APP_ROUTER_PROVIDERS
 ]);

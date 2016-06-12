@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
-import { HomeComponent } from './+home';
-import { AdminComponent } from './+admin';
-import { HighlightTestComponent } from './+highlight-test';
-
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MdButton } from '@angular2-material/button';
@@ -11,8 +7,6 @@ import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdIcon } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
-
-import { FbtestComponent } from './+fbtest';
 
 import { AuthComponent } from './auth';
 
@@ -31,17 +25,16 @@ import { AuthComponent } from './auth';
     AuthComponent
   ],
   providers: [
-    MdIconRegistry,
-    ROUTER_PROVIDERS
+    MdIconRegistry
   ]
 })
-@Routes([
+/*@Routes([
   {path: '/', component: HomeComponent},
   {path: '/fbtest', component: FbtestComponent},
   {path: '/admin', component: AdminComponent},
   {path: '/highlight-test', component: HighlightTestComponent}
 
-])
+])*/
 export class BaseAppComponent {
 
   navItems: NavItem[] = [
