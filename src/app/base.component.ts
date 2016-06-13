@@ -32,7 +32,8 @@ import { AuthComponent } from './auth';
   {path: '/', component: HomeComponent},
   {path: '/fbtest', component: FbtestComponent},
   {path: '/admin', component: AdminComponent},
-  {path: '/highlight-test', component: HighlightTestComponent}
+  {path: '/highlight-test', component: HighlightTestComponent},
+  {path: '/snippets/...', component: SnippetsComponent}
 
 ])*/
 export class BaseAppComponent {
@@ -57,7 +58,7 @@ export class BaseAppComponent {
       description: 'Various site settings'
     },
     {
-      route: ['/snippet'],
+      route: ['/snippets'],
       label: 'Snippets',
       icon: 'content_cut',
       description: 'Code Snippets'
