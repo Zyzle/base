@@ -5,14 +5,14 @@ import { FIREBASE_PROVIDERS, AuthProviders, AuthMethods, defaultFirebase,
   firebaseAuthConfig } from 'angularfire2';
 
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
-import { BaseAppComponent } from './app/base.component';
+import { AppComponent } from './app/app.component';
 import { environment } from './app/environment';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(BaseAppComponent, [
+bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   FIREBASE_PROVIDERS,
   defaultFirebase('https://baseplayground.firebaseio.com/'),

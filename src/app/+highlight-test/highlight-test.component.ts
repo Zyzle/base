@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { Highlight } from './highlight.directive';
+import { HighlightDirective } from './highlight.directive';
 
 @Component({
   moduleId: module.id,
@@ -8,7 +8,7 @@ import { Highlight } from './highlight.directive';
   templateUrl: 'highlight-test.component.html',
   styleUrls: ['highlight-test.component.css'],
   directives: [
-    Highlight
+    HighlightDirective
   ],
   encapsulation: ViewEncapsulation.None
 })

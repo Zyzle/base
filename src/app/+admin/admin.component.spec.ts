@@ -34,7 +34,7 @@ describe('Component: Admin', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(AdminComponentTestController)
+    return builder.createAsync(AdminComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(AdminComponent));
         expect(query).toBeTruthy();
@@ -44,11 +44,11 @@ describe('Component: Admin', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-admin></app-admin>
   `,
   directives: [AdminComponent]
 })
-class AdminComponentTestController {
+class AdminComponentTestControllerComponent {
 }

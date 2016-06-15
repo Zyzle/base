@@ -26,7 +26,7 @@ describe('Component: List', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(ListComponentTestController)
+    return builder.createAsync(ListComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(ListComponent));
         expect(query).toBeTruthy();
@@ -36,11 +36,11 @@ describe('Component: List', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-list></app-list>
   `,
   directives: [ListComponent]
 })
-class ListComponentTestController {
+class ListComponentTestControllerComponent {
 }

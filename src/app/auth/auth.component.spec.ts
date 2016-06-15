@@ -39,7 +39,7 @@ describe('Component: Auth', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(AuthComponentTestController)
+    return builder.createAsync(AuthComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(AuthComponent));
         expect(query).toBeTruthy();
@@ -56,11 +56,11 @@ describe('Component: Auth', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-auth></app-auth>
   `,
   directives: [AuthComponent]
 })
-class AuthComponentTestController {
+class AuthComponentTestControllerComponent {
 }

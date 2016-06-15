@@ -49,7 +49,7 @@ describe('Component: Snippets', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(SnippetsComponentTestController)
+    return builder.createAsync(SnippetsComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(SnippetsComponent));
         expect(query).toBeTruthy();
@@ -59,11 +59,11 @@ describe('Component: Snippets', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-snippets></app-snippets>
   `,
   directives: [SnippetsComponent]
 })
-class SnippetsComponentTestController {
+class SnippetsComponentTestControllerComponent {
 }

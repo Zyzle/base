@@ -49,10 +49,10 @@
     "app/+snippets/shared/index.ts",
     "app/+snippets/snippets.component.ts",
     "app/+snippets/snippets.routes.ts",
+    "app/app.component.ts",
     "app/app.routes.ts",
     "app/auth/auth.component.ts",
     "app/auth/index.ts",
-    "app/base.component.ts",
     "app/environment.ts",
     "app/index.ts",
     "app/shared/index.ts"

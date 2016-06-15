@@ -40,7 +40,7 @@ describe('Component: Detail', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(DetailComponentTestController)
+    return builder.createAsync(DetailComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(DetailComponent));
         expect(query).toBeTruthy();
@@ -50,11 +50,11 @@ describe('Component: Detail', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-detail></app-detail>
   `,
   directives: [DetailComponent]
 })
-class DetailComponentTestController {
+class DetailComponentTestControllerComponent {
 }

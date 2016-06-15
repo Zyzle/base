@@ -25,7 +25,7 @@ describe('Component: HighlightTest', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(HighlightTestComponentTestController)
+    return builder.createAsync(HighlightTestComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(HighlightTestComponent));
         expect(query).toBeTruthy();
@@ -35,12 +35,11 @@ describe('Component: HighlightTest', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-highlight-test></app-highlight-test>
   `,
   directives: [HighlightTestComponent]
 })
-class HighlightTestComponentTestController {
+class HighlightTestComponentTestControllerComponent {
 }
-

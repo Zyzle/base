@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 
 import 'highlight';
 
@@ -7,7 +7,7 @@ declare var hljs: any;
 @Directive({
   selector: '[highlight]'
 })
-export class Highlight {
+export class HighlightDirective implements AfterViewInit {
 
   constructor(public el: ElementRef) {  }
 

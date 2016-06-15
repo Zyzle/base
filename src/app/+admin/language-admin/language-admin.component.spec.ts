@@ -34,7 +34,7 @@ describe('Component: LanguageAdmin', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(LanguageAdminComponentTestController)
+    return builder.createAsync(LanguageAdminComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(LanguageAdminComponent));
         expect(query).toBeTruthy();
@@ -44,11 +44,11 @@ describe('Component: LanguageAdmin', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-component',
   template: `
     <app-language-admin></app-language-admin>
   `,
   directives: [LanguageAdminComponent]
 })
-class LanguageAdminComponentTestController {
+class LanguageAdminComponentTestControllerComponent {
 }

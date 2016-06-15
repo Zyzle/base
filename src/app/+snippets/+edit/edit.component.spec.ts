@@ -40,7 +40,7 @@ describe('Component: Edit', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(EditComponentTestController)
+    return builder.createAsync(EditComponentTestControllerComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(EditComponent));
         expect(query).toBeTruthy();
@@ -50,11 +50,11 @@ describe('Component: Edit', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'test-comp',
   template: `
     <app-edit></app-edit>
   `,
   directives: [EditComponent]
 })
-class EditComponentTestController {
+class EditComponentTestControllerComponent {
 }

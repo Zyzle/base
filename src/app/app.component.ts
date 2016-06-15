@@ -12,9 +12,9 @@ import { AuthComponent } from './auth';
 
 @Component({
   moduleId: module.id,
-  selector: 'base-app',
-  templateUrl: 'base.component.html',
-  styleUrls: ['base.component.css'],
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
   directives: [
     ROUTER_DIRECTIVES,
     MD_SIDENAV_DIRECTIVES,
@@ -28,16 +28,7 @@ import { AuthComponent } from './auth';
     MdIconRegistry
   ]
 })
-/*@Routes([
-  {path: '/', component: HomeComponent},
-  {path: '/fbtest', component: FbtestComponent},
-  {path: '/admin', component: AdminComponent},
-  {path: '/highlight-test', component: HighlightTestComponent},
-  {path: '/snippets/...', component: SnippetsComponent}
-
-])*/
-export class BaseAppComponent {
-
+export class AppComponent {
   navItems: NavItem[] = [
     {
       route: ['/'],
@@ -70,8 +61,6 @@ export class BaseAppComponent {
       description: 'Code highlighting with HighlightJS'
     }
   ];
-
-
 }
 
 interface NavItem {
