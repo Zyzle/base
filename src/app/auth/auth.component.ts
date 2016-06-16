@@ -5,7 +5,7 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card/card';
 import { MdIcon } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
-import { FirebaseAuth } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   moduleId: module.id,
@@ -29,12 +29,12 @@ export class AuthComponent implements OnInit {
   public authData: Object;
   public authCardOpen: boolean;
 
-  constructor(public auth: FirebaseAuth) {
+  constructor(public af: AngularFire) {
     this.authCardOpen = false;
-
-    auth.subscribe((ad: any) => {
+    this.af.auth.subscribe((ad: any) => {
       this.authData = ad;
     });
+
   }
 
   ngOnInit() {
@@ -54,11 +54,11 @@ export class AuthComponent implements OnInit {
   }
 
   login() {
-    this.auth.login();
+    this.af.auth.login();
   }
 
   logout() {
-    this.auth.logout();
+    this.af.auth.logout();
   }
 
 }

@@ -15,8 +15,12 @@ if (environment.production) {
 bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   FIREBASE_PROVIDERS,
-  defaultFirebase('https://baseplayground.firebaseio.com/'),
-  // defaultFirebase('https://base-c3306.firebaseio.com/'),
+  defaultFirebase({
+    apiKey: 'AIzaSyBzuu_QgpS2_MGNINWiKGoflF_gqPOHZ3c',
+    authDomain: 'base-c3306.firebaseapp.com',
+    databaseURL: 'https://base-c3306.firebaseio.com',
+    storageBucket: 'base-c3306.appspot.com',
+  }),
   firebaseAuthConfig({
     provider: AuthProviders.Google,
     method: AuthMethods.Popup

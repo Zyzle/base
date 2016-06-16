@@ -10,23 +10,26 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { FirebaseAuth } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { AuthComponent } from './auth.component';
 
-class MockFirebaseAuth extends ReplaySubject<any> {
+class MockAngularFire {
+  auth: ReplaySubject<any>;
+
   constructor() {
-    super();
-    this.next({auth: true});
+    this.auth = new ReplaySubject<any>();
+    this.auth.next({auth: true});
   }
 }
+
 
 describe('Component: Auth', () => {
   let builder: TestComponentBuilder;
 
   beforeEachProviders(() => [
-    provide(FirebaseAuth, {useClass: MockFirebaseAuth}),
+    provide(AngularFire, {useClass: MockAngularFire}),
     AuthComponent
   ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
