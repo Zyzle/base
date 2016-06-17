@@ -3,13 +3,10 @@
     Snippets
   </md-toolbar>
   <div class="card-content">
-    <form (ngSubmit)="onSubmit()" #languageForm="ngForm">
-      <md-input required placeholder="Language"
-        [(ngModel)]="newLanguage"
-        ngControl="newLang">
-      </md-input>
-      <button type="submit" md-raised-button color="primary"
-        [disabled]="!languageForm.form.valid">
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm" *ngIf="!resetting">
+      <md-input placeholder="Language" formControlName="newLanguage"></md-input>
+
+      <button type="submit" md-raised-button color="primary" [disabled]="!myForm.valid">
         ADD
       </button>
     </form>
