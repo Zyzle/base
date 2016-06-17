@@ -1,0 +1,31 @@
+.flexform {
+  display: flex;
+  flex-direction: column;
+}
+
+.formrow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formrow md-input {
+  flex-grow: 1;
+}
+
+.formrow select {
+  margin-left: 15px;
+}
+
+.snippet {
+  margin-top: 10px;
+  resize: vertical;
+  min-height: 200px;
+  border: 0.1em solid #ccc;
+
+}
+
+md-card-actions {
+  padding: 0 10px;
+  margin-bottom: 0;
+  margin-top: 15px;
+}

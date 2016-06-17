@@ -3,12 +3,12 @@ import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, Validators } from '@a
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import {MdButton} from '@angular2-material/button/button';
-import {MD_CARD_DIRECTIVES} from '@angular2-material/card/card';
+import {MdButton} from '@angular2-material/button';
+import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import { MdIcon } from '@angular2-material/icon';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input';
-import {MD_LIST_DIRECTIVES} from '@angular2-material/list/list';
-import {MdToolbar} from '@angular2-material/toolbar/toolbar';
+import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
+import {MdToolbar} from '@angular2-material/toolbar';
 
 @Component({
   moduleId: module.id,
@@ -27,7 +27,7 @@ import {MdToolbar} from '@angular2-material/toolbar/toolbar';
 })
 export class LanguageAdminComponent implements OnInit {
 
-  myForm: FormGroup  = this.makeForm();
+  myForm: FormGroup = this.makeForm();
   resetting: boolean = false;
 
   languages: FirebaseListObservable<any>;
@@ -39,8 +39,7 @@ export class LanguageAdminComponent implements OnInit {
   }
 
   onSubmit() {
-    this.languages.push(this.myForm.value.newLanguage);
-
+    this.languages.push(this.myForm.value);
     this.myForm = this.makeForm();
     // as work-arounds go, this is super shonky
     this.resetting = true;
@@ -53,7 +52,8 @@ export class LanguageAdminComponent implements OnInit {
 
   private makeForm() {
     return new FormGroup({
-      newLanguage: new FormControl('', Validators.required)
+      displayName: new FormControl('', Validators.required),
+      alias: new FormControl('', Validators.required)
     });
   }
 

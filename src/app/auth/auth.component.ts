@@ -5,7 +5,7 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card/card';
 import { MdIcon } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Component({
   moduleId: module.id,
@@ -26,20 +26,22 @@ import { AngularFire } from 'angularfire2';
 })
 export class AuthComponent implements OnInit {
 
-  public authData: Object;
-  public authCardOpen: boolean;
+  public authData: FirebaseAuthState;
+  public authCardOpen: boolean = false;
 
   constructor(public af: AngularFire) {
-    this.authCardOpen = false;
-    this.af.auth.subscribe((ad: any) => {
+    this.af.auth.subscribe((ad: FirebaseAuthState) => {
       this.authData = ad;
+      let user = this.af.database.object('/users/' + this.authData.uid);
+      user.set({
+        name: this.authData.auth['displayName'],
+        email: this.authData.auth['email'],
+        lastSeen: new Date().getTime()
+      });
     });
-
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   toggleCardOpen() {
     if (this.authData) {

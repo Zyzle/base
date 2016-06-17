@@ -37,22 +37,16 @@ export class AppComponent {
       description: 'Go Home'
     },
     {
-      route: ['/fbtest'],
-      label: 'Firebase Test',
-      icon: 'storage',
-      description: 'Firebase Tests'
+      route: ['/snippets'],
+      label: 'Snippets',
+      icon: 'content_cut',
+      description: 'Code Snippets'
     },
     {
       route: ['/admin'],
       label: 'Admin',
       icon: 'settings',
       description: 'Various site settings'
-    },
-    {
-      route: ['/snippets'],
-      label: 'Snippets',
-      icon: 'content_cut',
-      description: 'Code Snippets'
     },
     {
       route: ['/highlight-test'],

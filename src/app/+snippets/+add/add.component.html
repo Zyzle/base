@@ -1,0 +1,26 @@
+<md-card>
+  <form class="flexform" (ngSubmit)="onSubmit()" [formGroup]="snippetForm">
+    <div class="formrow">
+      <md-input #name type="text" placeholder="Name" maxLength="30"
+        formControlName="name">
+        <md-hint align="end">{{name.characterCount}} / 30</md-hint>
+      </md-input>
+      <select name="language" formControlName="language">
+        <option *ngFor="let language of languages | async"
+          value="{{language.$key}}">{{language.displayName}}</option>
+      </select>
+    </div>
+    <div class="formrow">
+      <md-input #description type="text" placeholder="Description"
+        maxLength="100" formControlName="description">
+        <md-hint align="end">{{description.characterCount}} / 100</md-hint>
+      </md-input>
+    </div>
+    <textarea class="snippet paper-font-code1" wrap="off" maxlength="2000"
+      placeholder="Snippet Code..." formControlName="code"></textarea>
+    <md-card-actions align="end">
+      <button md-button>CANCEL</button>
+      <button md-raised-button color="accent" type="submit">OK</button>
+    </md-card-actions>
+  </form>
+</md-card>

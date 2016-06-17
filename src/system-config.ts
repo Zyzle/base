@@ -59,7 +59,6 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/navigation',
-  'app/+fbtest',
   'app/auth',
   'app/+home',
   'app/+admin',
@@ -69,6 +68,7 @@ const barrels: string[] = [
   'app/+snippets/+list',
   'app/+snippets/+detail',
   'app/+snippets/+edit',
+  'app/+snippets/+add',
   /** @cli-barrel */
 ];
 

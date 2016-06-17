@@ -15,12 +15,24 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { AuthComponent } from './auth.component';
 
+class MockUser {
+    set(o: any) {}
+}
+
+class MockDatabase {
+  object(s: string) {
+    return new MockUser();
+  }
+}
+
 class MockAngularFire {
   auth: ReplaySubject<any>;
+  database: MockDatabase;
 
   constructor() {
     this.auth = new ReplaySubject<any>();
-    this.auth.next({auth: true});
+    this.auth.next({uid: 1, auth: {displayName: ''}});
+    this.database = new MockDatabase();
   }
 }
 

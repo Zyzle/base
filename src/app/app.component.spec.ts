@@ -16,8 +16,8 @@ describe('App: Base', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should contain the 5 nav components',
+  it('should contain the 4 nav components',
       inject([AppComponent], (app: AppComponent) => {
-    expect(app.navItems.length).toEqual(5);
+    expect(app.navItems.length).toEqual(4);
   }));
 });

@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+
+
 import { HighlightDirective } from './highlight.directive';
 
 @Component({
@@ -14,9 +17,12 @@ import { HighlightDirective } from './highlight.directive';
 })
 export class HighlightTestComponent implements OnInit {
 
-  constructor() {}
+  snippet: FirebaseObjectObservable<any>;
+
+  constructor(private af: AngularFire) {}
 
   ngOnInit() {
+    this.snippet = this.af.database.object('/snippets/-KKdWTzjJqlWkmP462qg');
   }
 
 }

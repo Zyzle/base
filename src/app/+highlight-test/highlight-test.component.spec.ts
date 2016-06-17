@@ -7,14 +7,22 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
+import { AngularFire } from 'angularfire2';
+
 import { HighlightTestComponent } from './highlight-test.component';
+
+class MockAngularFire { }
 
 describe('Component: HighlightTest', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [HighlightTestComponent]);
+  beforeEachProviders(() => [
+    provide(AngularFire, {useClass: MockAngularFire}),
+    HighlightTestComponent
+  ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
