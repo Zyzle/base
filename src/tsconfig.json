@@ -45,6 +45,7 @@
     "app/+snippets/+list/shared/index.ts",
     "app/+snippets/index.ts",
     "app/+snippets/shared/index.ts",
+    "app/+snippets/shared/models.ts",
     "app/+snippets/snippets.component.ts",
     "app/+snippets/snippets.routes.ts",
     "app/app.component.ts",

@@ -1,0 +1,19 @@
+.detail {
+  color: var(--secondary-text-color);
+}
+
+md-nav-list a .title {
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.add-fab {
+  top: 28px;
+}
+
+md-input {
+  color: white;
+}

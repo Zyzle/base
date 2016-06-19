@@ -1,3 +1,19 @@
-<p>
-  list works!
-</p>
+<md-toolbar color="primary">
+  <md-input placeholder="Search" dividerColor="accent" floatingPlaceholder="false">
+    <span md-prefix><md-icon>search</md-icon>&nbsp;</span>
+  </md-input>
+  <span class="spacer"></span>
+  <a md-fab color="accent" [routerLink]="['add']" class="add-fab">
+    <md-icon>add</md-icon>
+  </a>
+</md-toolbar>
+
+<md-nav-list>
+  <a md-list-item *ngFor="let snippet of snippets | async"
+    [routerLink]="[snippet.$key]">
+    <md-icon md-list-icon>content_cut</md-icon>
+    <span md-line class="title">{{snippet.name}}</span>
+    <span md-line class="secondary">{{snippet.description}}</span>
+    <span md-line class="secondary detail">Created By: {{snippet.authorName}} | {{ snippet.updatedDate | date}}</span>
+  </a>
+</md-nav-list>

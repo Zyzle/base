@@ -6,7 +6,7 @@
         <md-hint align="end">{{name.characterCount}} / 30</md-hint>
       </md-input>
       <select name="language" formControlName="language">
-        <option *ngFor="let language of languages | async"
+        <option *ngFor="let language of languages"
           value="{{language.$key}}">{{language.displayName}}</option>
       </select>
     </div>
@@ -19,8 +19,9 @@
     <textarea class="snippet paper-font-code1" wrap="off" maxlength="2000"
       placeholder="Snippet Code..." formControlName="code"></textarea>
     <md-card-actions align="end">
-      <button md-button>CANCEL</button>
-      <button md-raised-button color="accent" type="submit">OK</button>
+      <a md-button (click)="onCancel()">CANCEL</a>
+      <button md-raised-button color="accent" type="submit"
+        [disabled]="!snippetForm.valid">OK</button>
     </md-card-actions>
   </form>
 </md-card>

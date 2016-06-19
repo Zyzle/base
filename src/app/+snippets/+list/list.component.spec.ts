@@ -7,15 +7,47 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
+import { Http } from '@angular/http';
 import { By } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+
+import { AngularFire } from 'angularfire2';
 
 import { ListComponent } from './list.component';
+
+class MockAngularFire {
+  constructor() {}
+}
+
+class MockHttp {
+  constructor() {}
+}
+
+class MockRouter {
+  constructor() {}
+}
+
+class MockActivatedRoute {
+  params: ReplaySubject<string>;
+  constructor() {
+    this.params = new ReplaySubject<string>();
+    this.params.next('1');
+  }
+}
 
 describe('Component: List', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [ListComponent]);
+  beforeEachProviders(() => [
+    provide(AngularFire, {useClass: MockAngularFire}),
+    provide(Http, {useClass: MockHttp}),
+    provide(Router, {useClass: MockRouter}),
+    provide(ActivatedRoute, {useClass: MockActivatedRoute}),
+    ListComponent
+  ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

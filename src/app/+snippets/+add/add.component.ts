@@ -8,6 +8,8 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 
 import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 
+import { Language } from '../shared';
+
 @Component({
   moduleId: module.id,
   selector: 'app-add',
@@ -22,9 +24,10 @@ import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularf
 })
 export class AddComponent implements OnInit {
 
-  languages: FirebaseListObservable<any>;
+  languages: Language[];
   snippets: FirebaseListObservable<any>;
   authData: FirebaseAuthState;
+
 
   snippetForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -39,19 +42,37 @@ export class AddComponent implements OnInit {
     this.af.auth.subscribe((ad: FirebaseAuthState) => {
       this.authData = ad;
     });
-    this.languages = this.af.database.list('/languages');
+
+    this.af.database.list('/languages').subscribe((val: Language[]) => {
+      this.languages = val;
+    });
+
     this.snippets = this.af.database.list('/snippets');
+
+
   }
 
   onSubmit() {
     let now = new Date().getTime();
     let newSnippet = this.snippetForm.value;
-    newSnippet['author'] = this.authData.uid;
+
+    newSnippet['authorUID'] = this.authData.uid;
+    newSnippet['authorName'] = this.authData.auth.displayName;
     newSnippet['createdDate'] = now;
     newSnippet['updatedDate'] = now;
 
+    let selectedLang: Language = this.languages.filter((val: Language) => {
+      return val.$key === this.snippetForm.value.language;
+    }).pop();
+
+    newSnippet['languageAlias'] = selectedLang.alias;
+    newSnippet['languageDisplayName'] = selectedLang.displayName;
+
     this.snippets.push(newSnippet);
-    console.log('trying redirect');
+    this.router.navigate(['/snippets']);
+  }
+
+  onCancel() {
     this.router.navigate(['/snippets']);
   }
 

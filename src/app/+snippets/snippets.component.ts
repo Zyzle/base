@@ -15,8 +15,6 @@ import { MdButton } from '@angular2-material/button';
 })
 export class SnippetsComponent implements OnInit {
 
-  snip: number = 1;
-
   constructor() {}
 
   ngOnInit() {
