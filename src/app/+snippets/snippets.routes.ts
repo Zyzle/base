@@ -6,13 +6,13 @@ import { AddComponent } from './+add/add.component';
 
 export const SNIPPETS_COMPONENTS = [
   {
-    path: '/snippets',
+    path: 'snippets',
     component: SnippetsComponent,
     children: [
-      { path: '/', component: ListComponent, index: true },
-      { path: '/add', component: AddComponent },
-      { path: '/:id', component: DetailComponent },
-      { path: '/:id/edit', component: EditComponent }
+      { path: '', component: ListComponent },
+      { path: 'add', component: AddComponent },
+      { path: ':id', component: DetailComponent },
+      { path: ':id/edit', component: EditComponent }
     ]
   }
 ];

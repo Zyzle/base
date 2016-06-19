@@ -51,6 +51,7 @@ export class AddComponent implements OnInit {
     newSnippet['updatedDate'] = now;
 
     this.snippets.push(newSnippet);
+    console.log('trying redirect');
     this.router.navigate(['/snippets']);
   }
 

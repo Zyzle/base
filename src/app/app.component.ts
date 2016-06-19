@@ -31,25 +31,25 @@ import { AuthComponent } from './auth';
 export class AppComponent {
   navItems: NavItem[] = [
     {
-      route: ['/'],
+      route: [''],
       label: 'Home',
       icon: 'home',
       description: 'Go Home'
     },
     {
-      route: ['/snippets'],
+      route: ['snippets'],
       label: 'Snippets',
       icon: 'content_cut',
       description: 'Code Snippets'
     },
     {
-      route: ['/admin'],
+      route: ['admin'],
       label: 'Admin',
       icon: 'settings',
       description: 'Various site settings'
     },
     {
-      route: ['/highlight-test'],
+      route: ['highlight-test'],
       label: 'Highlight JS',
       icon: 'code',
       description: 'Code highlighting with HighlightJS'
