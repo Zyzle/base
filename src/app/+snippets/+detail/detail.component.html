@@ -1,3 +1,27 @@
-<p>
-  detail for {{ id | async }} works!
-</p>
+<md-card>
+  <div *ngIf="!loaded" class="centre-er">
+    <md-progress-circle mode="indeterminate" color="accent"></md-progress-circle>
+  </div>
+  <div *ngIf="loaded">
+  <md-card-header>
+    <img [src]="getImage()" md-card-avatar />
+    <md-card-title><b>{{ (snippet | async)?.name }}</b></md-card-title>
+    <md-card-subtitle>
+      <b>By</b> {{ (snippet | async)?.authorName }} ·
+      <b>Last Updated</b> {{ (snippet | async)?.updatedDate | date }}
+    </md-card-subtitle>
+    <span class="spacer"></span>
+    <a md-fab color="accent" [routerLink]="['edit']" class="edit-fab">
+      <md-icon>edit</md-icon>
+    </a>
+  </md-card-header>
+
+  <hr />
+
+  <pre>
+    <code highlight [class]="(snippet | async )?.languageAlias">
+{{ (snippet | async )?.code }}
+    </code>
+  </pre>
+</div>
+</md-card>

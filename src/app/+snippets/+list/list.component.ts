@@ -10,7 +10,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MdToolbar } from '@angular2-material/toolbar';
 
-import { Snippet } from '../shared/models';
+import { Snippet } from '../shared';
 
 @Component({
   moduleId: module.id,

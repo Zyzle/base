@@ -9,7 +9,7 @@ declare var hljs: any;
 })
 export class HighlightDirective implements AfterViewChecked {
 
-  constructor(public el: ElementRef) {  }
+  constructor(private el: ElementRef) {}
 
   ngAfterViewChecked() {
     hljs.highlightBlock(this.el.nativeElement);

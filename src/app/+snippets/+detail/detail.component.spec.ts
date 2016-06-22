@@ -11,9 +11,14 @@ import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
+import { AngularFire } from 'angularfire2';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { DetailComponent } from './detail.component';
+
+class MockAngularFire {
+  constructor() {}
+}
 
 class MockActivatedRoute {
   params: ReplaySubject<string>;
@@ -27,6 +32,7 @@ describe('Component: Detail', () => {
   let builder: TestComponentBuilder;
 
   beforeEachProviders(() => [
+    provide(AngularFire, {useClass: MockAngularFire}),
     provide(ActivatedRoute, {useClass: MockActivatedRoute}),
     DetailComponent
   ]);

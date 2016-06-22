@@ -28,6 +28,7 @@ const materialPackages: string[] = [
   'icon',
   'input',
   'list',
+  'progress-circle',
   'sidenav',
   'toolbar'
 ];
@@ -63,7 +64,6 @@ const barrels: string[] = [
   'app/+home',
   'app/+admin',
   'app/+admin/language-admin',
-  'app/+highlight-test',
   'app/+snippets',
   'app/+snippets/+list',
   'app/+snippets/+detail',
