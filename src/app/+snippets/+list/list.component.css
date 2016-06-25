@@ -7,7 +7,7 @@ md-nav-list a .title {
 }
 
 .spacer {
-  flex: 1 1 auto;
+  margin: 0 8px;
 }
 
 .add-fab {
@@ -23,4 +23,18 @@ md-nav-list a .title {
     position: fixed;
     bottom: 20px;
     right: 20px;
+}
+
+.centre-er {
+  display: flex;
+  justify-content: center;
+}
+
+md-card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+md-input {
+  flex: 1 1 auto;
 }

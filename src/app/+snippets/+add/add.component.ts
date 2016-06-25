@@ -8,7 +8,7 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 
 import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 
-import { Language } from '../shared';
+import { Language, Snippet } from '../shared';
 
 @Component({
   moduleId: module.id,
@@ -25,7 +25,7 @@ import { Language } from '../shared';
 export class AddComponent implements OnInit {
 
   languages: Language[];
-  snippets: FirebaseListObservable<any>;
+  snippets: FirebaseListObservable<Snippet[]>;
   authData: FirebaseAuthState;
 
 

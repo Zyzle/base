@@ -9,11 +9,17 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { AngularFire } from 'angularfire2';
 
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { EditComponent } from './edit.component';
+
+class MockRouter {
+  constructor() {}
+}
 
 class MockActivatedRoute {
   params: ReplaySubject<string>;
@@ -23,11 +29,17 @@ class MockActivatedRoute {
   }
 }
 
+class MockAngularFire {
+  constructor() {}
+}
+
 describe('Component: Edit', () => {
   let builder: TestComponentBuilder;
 
   beforeEachProviders(() => [
     provide(ActivatedRoute, {useClass: MockActivatedRoute}),
+    provide(Router, {useClass: MockRouter}),
+    provide(AngularFire, {useClass: MockAngularFire}),
     EditComponent
   ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {

@@ -9,7 +9,7 @@ import { MdIcon } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import {MdProgressCircle, MdSpinner} from '@angular2-material/progress-circle';
+import { MdProgressCircle, MdSpinner } from '@angular2-material/progress-circle';
 import { MdToolbar } from '@angular2-material/toolbar';
 
 import { Snippet } from '../shared';
@@ -38,12 +38,19 @@ export class ListComponent implements OnInit {
 
   snippets: FirebaseListObservable<Snippet[]>;
   users: FirebaseListObservable<any>;
+  loaded: boolean = false;
 
   constructor(private af: AngularFire) {}
 
   ngOnInit() {
     this.snippets = this.af.database.list('/snippets');
-    this.users = this.af.database.list('/users');
+
+    this.snippets.map(() => {
+      return true;
+    })
+    .subscribe((b: boolean) => {
+      this.loaded = b;
+    });
   }
 
   getImage(s: Snippet) {
