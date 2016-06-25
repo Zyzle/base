@@ -18,7 +18,9 @@
 
   <hr />
 
-  <pre>
+  <p class="paper-font-body1 descript">{{ (snippet | async)?.description }}</p>
+
+  <pre class="paper-font-code1">
     <code highlight [class]="(snippet | async )?.languageAlias">
 {{ (snippet | async )?.code }}
     </code>

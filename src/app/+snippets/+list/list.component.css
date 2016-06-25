@@ -14,6 +14,13 @@ md-nav-list a .title {
   top: 28px;
 }
 
-md-input {
-  color: white;
+[md-list-icon] {
+  border-radius: 0 !important; /* boo! */
+}
+
+.action-fab {
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }

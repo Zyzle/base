@@ -47,12 +47,6 @@ export class AppComponent {
       label: 'Admin',
       icon: 'settings',
       description: 'Various site settings'
-    },
-    {
-      route: ['highlight-test'],
-      label: 'Highlight JS',
-      icon: 'code',
-      description: 'Code highlighting with HighlightJS'
     }
   ];
 }

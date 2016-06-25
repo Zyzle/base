@@ -39,7 +39,7 @@ import { Snippet } from '../shared/models';
 export class DetailComponent implements OnInit {
 
   id: string;
-  snippet: FirebaseObjectObservable<any>;
+  snippet: FirebaseObjectObservable<Snippet>;
   loaded: boolean = false;
 
   constructor(r: ActivatedRoute, private af: AngularFire) {
