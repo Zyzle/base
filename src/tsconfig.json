@@ -50,6 +50,7 @@
     "app/auth/index.ts",
     "app/environment.ts",
     "app/index.ts",
+    "app/shared/auth.guard.ts",
     "app/shared/index.ts"
   ],
   "filesGlob": [

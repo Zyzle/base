@@ -32,12 +32,14 @@ export class AuthComponent implements OnInit {
   constructor(public af: AngularFire) {
     this.af.auth.subscribe((ad: FirebaseAuthState) => {
       this.authData = ad;
-      let user = this.af.database.object('/users/' + this.authData.uid);
-      user.set({
-        name: this.authData.auth['displayName'],
-        email: this.authData.auth['email'],
-        lastSeen: new Date().getTime()
-      });
+      if (this.authData) {
+        let user = this.af.database.object('/users/' + this.authData.uid);
+        user.set({
+          name: this.authData.auth['displayName'],
+          email: this.authData.auth['email'],
+          lastSeen: new Date().getTime()
+        });
+      }
     });
   }
 
