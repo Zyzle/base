@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import {
-  beforeEach, beforeEachProviders,
+  addProviders, beforeEach,
   describe, xdescribe,
   expect, it, xit,
   async, inject
@@ -12,44 +12,46 @@ import { Router } from '@angular/router';
 
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseAuth, FirebaseAuthState } from 'angularfire2';
 
-import {AuthGuard} from './auth.guard';
+import { AuthGuard } from './auth.guard';
 
 class MockRouter {}
 
-class MockAngularFire {
-  auth: ReplaySubject<any>;
-
+class MockFirebaseAuth extends ReplaySubject<any> {
   constructor() {
-    this.auth = new ReplaySubject<any>();
-    this.auth.next(null);
+    super();
   }
 
   fakeLoginUser() {
-    this.auth.next({uid: 'jadsnflnadslfkn'});
+    this.next({uid: 'jadsnflnadslfkn'});
   }
 }
 
 describe('AuthGuard', () => {
 
-  beforeEachProviders(() => [
-    provide(AngularFire, {useClass: MockAngularFire}),
-    provide(Router, {useClass: MockRouter}),
-    AuthGuard
-  ]);
+  beforeEach(() => {
+    addProviders([
+      provide(FirebaseAuth, {useClass: MockFirebaseAuth}),
+      provide(Router, {useClass: MockRouter}),
+      AuthGuard
+    ]);
+  });
 
   it('should create an instance', inject([AuthGuard], (ag: AuthGuard) => {
     expect(ag).toBeTruthy();
   }));
 
   it('should deny unauthenticated users', inject([AuthGuard], (ag: AuthGuard) => {
-    expect(ag.canActivate()).toBe(false);
+    ag.canActivate().subscribe((auth: boolean) => {
+      expect(auth).toBe(false);
+    });
   }));
 
-  it('should allow authenticated users', inject([AngularFire, AuthGuard], (af: MockAngularFire, ag: AuthGuard) => {
-    expect(ag.canActivate()).toBe(false);
+  it('should allow authenticated users', inject([FirebaseAuth, AuthGuard], (af: MockFirebaseAuth, ag: AuthGuard) => {
     af.fakeLoginUser();
-    expect(ag.canActivate()).toBe(true);
+    ag.canActivate().subscribe((auth: boolean) => {
+      expect(auth).toBe(true);
+    });
   }));
 });
