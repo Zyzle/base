@@ -5,3 +5,8 @@ md-card {
 .card-content {
   padding: 24px;
 }
+
+.add-form {
+  display: flex;
+  justify-content: space-around;
+}

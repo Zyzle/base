@@ -1,7 +1,8 @@
 <md-card>
   <md-card-header>
-    <md-input [disabled]="!loaded" placeholder="Search" dividerColor="accent" ></md-input>
-    <span class="spacer"></span>
+    <md-card-title>
+      <md-input [disabled]="!loaded" placeholder="Search" dividerColor="accent" ></md-input>
+    </md-card-title>
   </md-card-header>
 
   <div *ngIf="!loaded" class="centre-er">

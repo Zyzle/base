@@ -34,3 +34,7 @@ md-card-actions {
   display: flex;
   justify-content: center;
 }
+
+md-input {
+  overflow: visible;
+}

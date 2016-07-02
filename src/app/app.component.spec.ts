@@ -1,14 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import {
-  beforeEach, beforeEachProviders,
+  addProviders, beforeEach,
   describe, xdescribe,
   expect, it, xit,
   async, inject
 } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-beforeEachProviders(() => [AppComponent]);
+beforeEach(() => {
+  addProviders([AppComponent]);
+});
 
 describe('App: Base', () => {
   it('should create the app',

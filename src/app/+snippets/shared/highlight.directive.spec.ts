@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
 import {
-  beforeEach, beforeEachProviders,
+  addProviders, beforeEach,
   describe, xdescribe,
   expect, it, xit,
-  async, inject
+  async, inject,
+  ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { HighlightDirective } from './highlight.directive';
 

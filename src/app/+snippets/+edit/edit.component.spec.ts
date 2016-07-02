@@ -1,12 +1,12 @@
 import {
+  addProviders,
   beforeEach,
-  beforeEachProviders,
   describe,
   expect,
   it,
   inject,
+  ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -36,12 +36,15 @@ class MockAngularFire {
 describe('Component: Edit', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [
-    provide(ActivatedRoute, {useClass: MockActivatedRoute}),
-    provide(Router, {useClass: MockRouter}),
-    provide(AngularFire, {useClass: MockAngularFire}),
-    EditComponent
-  ]);
+  beforeEach(() => {
+    addProviders([
+      provide(ActivatedRoute, {useClass: MockActivatedRoute}),
+      provide(Router, {useClass: MockRouter}),
+      provide(AngularFire, {useClass: MockAngularFire}),
+      EditComponent
+    ]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

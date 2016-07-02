@@ -1,12 +1,12 @@
 import {
+  addProviders,
   beforeEach,
-  beforeEachProviders,
   describe,
   expect,
   it,
   inject,
+  ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -31,11 +31,14 @@ class MockActivatedRoute {
 describe('Component: Detail', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [
-    provide(AngularFire, {useClass: MockAngularFire}),
-    provide(ActivatedRoute, {useClass: MockActivatedRoute}),
-    DetailComponent
-  ]);
+  beforeEach(() => {
+    addProviders([
+      provide(AngularFire, {useClass: MockAngularFire}),
+      provide(ActivatedRoute, {useClass: MockActivatedRoute}),
+      DetailComponent
+    ]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

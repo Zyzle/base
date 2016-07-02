@@ -3,7 +3,7 @@
     Snippets Admin
   </md-toolbar>
   <div class="card-content">
-    <form (ngSubmit)="onSubmit()" [formGroup]="myForm" *ngIf="!resetting">
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm" *ngIf="!resetting" class="add-form">
       <md-input placeholder="Display Name" formControlName="displayName"></md-input>
       <md-input placeholder="Alias" formControlName="alias"></md-input>
 

@@ -29,12 +29,3 @@ md-nav-list a .title {
   display: flex;
   justify-content: center;
 }
-
-md-card-header {
-  display: flex;
-  flex-direction: column;
-}
-
-md-input {
-  flex: 1 1 auto;
-}

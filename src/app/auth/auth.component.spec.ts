@@ -5,8 +5,8 @@ import {
   expect,
   it,
   inject,
+  ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 

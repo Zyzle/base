@@ -1,12 +1,12 @@
 import {
   beforeEach,
-  beforeEachProviders,
+  addProviders,
   describe,
   expect,
   it,
   inject,
+  ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { AdminComponent } from './admin.component';
@@ -20,10 +20,13 @@ class MockAngularFire {
 describe('Component: Admin', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [
-    provide(AngularFire, {useClass: MockAngularFire}),
-    AdminComponent
-  ]);
+  beforeEach(() => {
+    addProviders([
+      provide(AngularFire, {useClass: MockAngularFire}),
+      AdminComponent
+    ]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
