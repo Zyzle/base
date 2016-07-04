@@ -17,7 +17,7 @@ import { HighlightDirective } from './highlight.directive';
 class TestComponent {}
 
 
-describe('Highlight Directive', () => {
+describe('Directive: Highlight', () => {
 
 
 

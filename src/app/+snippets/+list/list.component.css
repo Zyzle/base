@@ -10,22 +10,24 @@ md-nav-list a .title {
   margin: 0 8px;
 }
 
-.add-fab {
-  top: 28px;
-}
 
 [md-list-icon] {
   border-radius: 0 !important; /* boo! */
 }
 
-.action-fab {
-    display: inline-block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
 .centre-er {
   display: flex;
   justify-content: center;
+}
+
+.spanner {
+  display: flex;
+  justify-content: flex-end;
+  height: 0;
+}
+
+.add-fab {
+  top: -28px;
+  z-index: 1;
+  left: -20px;
 }

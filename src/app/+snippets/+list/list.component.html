@@ -1,3 +1,8 @@
+<div class="spanner">
+  <a md-fab color="accent" [routerLink]="['add']" class="add-fab">
+    <md-icon>add</md-icon>
+  </a>
+</div>
 <md-card>
   <md-card-header>
     <md-card-title>
@@ -10,19 +15,25 @@
   </div>
   <div *ngIf="loaded">
     <md-nav-list>
-      <a md-list-item *ngFor="let snippet of snippets | async"
-        [routerLink]="[snippet.$key]">
-        <img md-list-icon [src]="getImage(snippet)" />
-        <span md-line class="title">{{snippet.name}}</span>
-        <span md-line class="secondary">{{snippet.description}}</span>
-        <span md-line class="secondary detail">Created By: {{snippet.authorName}} | {{ snippet.updatedDate | date}}</span>
-      </a>
+      <span *ngFor="let backup of snippetsBackup | async" class="snippet-item">
+        <md-list-item>
+          <img md-list-icon [src]="getImage(backup)" />
+          <span md-line class="title">{{backup.name}}</span>
+          <button md-raised-button (click)="restore(backup)">Restore</button>
+        </md-list-item>
+      </span>
+
+      <span *ngFor="let snippet of snippets | async" class="snippet-item">
+        <a md-list-item [routerLink]="[snippet.$key]">
+          <img md-list-icon [src]="getImage(snippet)" />
+          <span md-line class="title">{{snippet.name}}</span>
+          <span md-line class="secondary">{{snippet.description}}</span>
+          <span md-line class="secondary detail">Created By: {{snippet.authorName}} | {{ snippet.updatedDate | date}}</span>
+        </a>
+        <button md-icon-button (click)="delete(snippet)">
+          <md-icon>delete</md-icon>
+        </button>
+      </span>
     </md-nav-list>
   </div>
 </md-card>
-
-<span class="action-fab">
-  <a md-fab color="accent" [routerLink]="['add']">
-    <md-icon>add</md-icon>
-  </a>
-</span>

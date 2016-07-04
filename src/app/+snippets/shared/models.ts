@@ -9,7 +9,8 @@ export interface Snippet {
   languageDisplayName: string;
   name: string;
   updatedDate: string;
-  $key: string;
+  $key?: string;
+  $value?: any;
 }
 
 export interface Language {

@@ -4,7 +4,7 @@ import { DetailComponent } from './+detail/detail.component';
 import { EditComponent } from './+edit/edit.component';
 import { AddComponent } from './+add/add.component';
 
-import { AuthGuard } from '../shared/auth.guard';
+import { AuthGuard, CanDeactivateGuard } from '../shared';
 
 export const SNIPPETS_COMPONENTS = [
   {
@@ -12,7 +12,7 @@ export const SNIPPETS_COMPONENTS = [
     component: SnippetsComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: ListComponent },
+      { path: '', component: ListComponent, canDeactivate: [CanDeactivateGuard] },
       { path: 'add', component: AddComponent, canActivate: [AuthGuard] },
       { path: ':id', component: DetailComponent, canActivate: [AuthGuard] },
       { path: ':id/edit', component: EditComponent, canActivate: [AuthGuard] }

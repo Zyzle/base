@@ -5,7 +5,7 @@ import { LOGIN_ROUTES } from './+login/login.routes';
 import { ADMIN_ROUTES } from './+admin/admin.routes';
 import { SNIPPETS_COMPONENTS } from './+snippets/snippets.routes';
 
-import { AuthGuard } from './shared/auth.guard';
+import { AuthGuard, CanDeactivateGuard } from './shared';
 
 const routes: RouterConfig = [
   ...HOME_ROUTES,
@@ -16,5 +16,6 @@ const routes: RouterConfig = [
 
 export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes),
-  AuthGuard
+  AuthGuard,
+  CanDeactivateGuard
 ];

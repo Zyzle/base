@@ -28,7 +28,7 @@ class MockFirebaseAuth extends ReplaySubject<any> {
   }
 }
 
-describe('AuthGuard', () => {
+describe('Guard: Auth', () => {
 
   beforeEach(() => {
     addProviders([
