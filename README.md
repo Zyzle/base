@@ -9,20 +9,6 @@
 This is just a bunch of Angular2 experiments mostly around using rest-apis from various sources to
 provide information to the user.
 
-Right now this needs a manual hack in angular2-material to support the new forms components namely:
-
-Replace
-`var common_1 = require('@angular/common');`
-with
-`var common_1 = require('@angular/forms');`
-
-in the following files:
-
-- ~~node_modules/@angular2-material/checkbox/checkbox.js~~
-- node_modules/@angular2-material/input/input.js
-- ~~node_modules/@angular2-material/radio/radio.js~~
-- ~~node_modules/@angular2-material/slide-toggle/slide-toggle.js~~
-
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
 
 ## Development server
