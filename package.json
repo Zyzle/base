@@ -1,6 +1,6 @@
 {
   "name": "base",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -40,7 +40,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "angular-cli": "1.0.0-beta.8",
+    "angular-cli": "1.0.0-beta.9",
     "codelyzer": "0.0.24",
     "ember-cli-inject-live-reload": "1.4.0",
     "jasmine-core": "2.4.1",
