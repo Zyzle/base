@@ -1,24 +1,38 @@
+
+<md-toolbar color="accent">
+  <button md-icon-button (click)="goBack()">
+    <md-icon>arrow_back</md-icon>
+  </button>
+  <span *ngIf="!loaded">Loading...</span>
+  <span *ngIf="loaded"><b>{{ (snippet | async)?.name }}</b></span>
+  <span class="spacer"></span>
+
+  <button md-fab color="primary" (click)="plusOne()" class="plus-fab" [disabled]="!loaded">
+    <md-icon>plus_one</md-icon>
+  </button>
+
+  <a md-fab color="primary" [routerLink]="['edit']" class="edit-fab" [disabled]="!loaded">
+    <md-icon>edit</md-icon>
+  </a>
+
+</md-toolbar>
 <md-card>
   <div *ngIf="!loaded" class="centre-er">
     <md-progress-circle mode="indeterminate" color="accent"></md-progress-circle>
   </div>
   <div *ngIf="loaded">
-  <md-card-header>
-    <img [src]="getImage()" md-card-avatar />
-    <md-card-title><b>{{ (snippet | async)?.name }}</b></md-card-title>
-    <md-card-subtitle>
-      <b>By</b> {{ (snippet | async)?.authorName }} ·
-      <b>Last Updated</b> {{ (snippet | async)?.updatedDate | date }}
-    </md-card-subtitle>
-    <span class="spacer"></span>
-    <a md-fab color="accent" [routerLink]="['edit']" class="edit-fab">
-      <md-icon>edit</md-icon>
-    </a>
-  </md-card-header>
-
-  <hr />
-
-  <p class="paper-font-body1 descript">{{ (snippet | async)?.description }}</p>
+    <div class="header">
+      <span class="badge lang-image" [attr.data-score]="score">
+        <img [src]="getImage()" />
+      </span>
+      <div class="description">
+        <p class="paper-font-body1">{{ (snippet | async)?.description }}</p>
+        <p class="paper-font-caption">
+          By {{ (snippet | async)?.authorName }} ·
+          Last Updated {{ (snippet | async)?.updatedDate | date }}
+        </p>
+      </div>
+    </div>
 
   <pre class="paper-font-code1">
     <code highlight [class]="(snippet | async )?.languageAlias">

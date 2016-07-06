@@ -60,6 +60,7 @@ export class AddComponent implements OnInit {
     newSnippet['authorName'] = this.authData.auth.displayName;
     newSnippet['createdDate'] = now;
     newSnippet['updatedDate'] = now;
+    newSnippet['score'] = 0;
 
     let selectedLang: Language = this.languages.filter((val: Language) => {
       return val.$key === this.snippetForm.value.language;

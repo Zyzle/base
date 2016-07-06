@@ -6,8 +6,8 @@
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #f0f0f0;
-  color: #333;
+  color: #f0f0f0;
+  background: #333;
 }
 
 .hljs-name,
@@ -21,7 +21,7 @@
 }
 
 .hljs-tag {
-  color: #062873;
+  color: #62c8f3;
 }
 
 .hljs-variable,
