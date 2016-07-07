@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { MdButton } from '@angular2-material/button';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import {MdProgressCircle, MdSpinner} from '@angular2-material/progress-circle';
+import { MD_PROGRESS_CIRCLE_DIRECTIVES } from '@angular2-material/progress-circle';
 
 import { AngularFire, FirebaseAuthState, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
@@ -20,9 +20,8 @@ import { Language, Snippet } from '../shared/models';
     MD_CARD_DIRECTIVES,
     MD_INPUT_DIRECTIVES,
     REACTIVE_FORM_DIRECTIVES,
-    MdButton,
-    MdProgressCircle,
-    MdSpinner
+    MD_BUTTON_DIRECTIVES,
+    MD_PROGRESS_CIRCLE_DIRECTIVES
   ]
 })
 export class EditComponent implements OnInit {

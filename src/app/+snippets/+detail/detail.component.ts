@@ -5,10 +5,10 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import { MdIcon } from '@angular2-material/icon';
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
-import {MdProgressCircle, MdSpinner} from '@angular2-material/progress-circle';
-import { MdToolbar } from '@angular2-material/toolbar';
+import { MD_PROGRESS_CIRCLE_DIRECTIVES } from '@angular2-material/progress-circle';
+import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 import { HighlightDirective } from '../shared/highlight.directive';
 import { Snippet } from '../shared/models';
@@ -26,10 +26,9 @@ import { Snippet } from '../shared/models';
     MD_CARD_DIRECTIVES,
     MD_BUTTON_DIRECTIVES,
     HighlightDirective,
-    MdIcon,
-    MdToolbar,
-    MdProgressCircle,
-    MdSpinner
+    MD_ICON_DIRECTIVES,
+    MD_TOOLBAR_DIRECTIVES,
+    MD_PROGRESS_CIRCLE_DIRECTIVES
   ],
   providers: [
     MdIconRegistry

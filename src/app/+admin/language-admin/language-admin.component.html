@@ -1,7 +1,7 @@
+<md-toolbar color="accent">
+  Snippets Admin
+</md-toolbar>
 <md-card>
-  <md-toolbar color="accent">
-    Snippets Admin
-  </md-toolbar>
   <div class="card-content">
     <form (ngSubmit)="onSubmit()" [formGroup]="myForm" *ngIf="!resetting" class="add-form">
       <md-input placeholder="Display Name" formControlName="displayName"></md-input>

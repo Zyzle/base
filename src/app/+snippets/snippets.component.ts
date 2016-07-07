@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { MdButton } from '@angular2-material/button';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +9,7 @@ import { MdButton } from '@angular2-material/button';
   templateUrl: 'snippets.component.html',
   styleUrls: ['snippets.component.css'],
   directives: [
-    MdButton,
+    MD_BUTTON_DIRECTIVES,
     ROUTER_DIRECTIVES
   ]
 })

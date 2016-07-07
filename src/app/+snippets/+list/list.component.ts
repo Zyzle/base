@@ -3,14 +3,14 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 
-import { MdButton } from '@angular2-material/button';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import { MdIcon } from '@angular2-material/icon';
+import { MD_ICON_DIRECTIVES} from '@angular2-material/icon';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MdProgressCircle, MdSpinner } from '@angular2-material/progress-circle';
-import { MdToolbar } from '@angular2-material/toolbar';
+import { MD_PROGRESS_CIRCLE_DIRECTIVES } from '@angular2-material/progress-circle';
+import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -27,11 +27,10 @@ import { CanComponentDeactivate } from '../../shared';
     MD_CARD_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     MD_INPUT_DIRECTIVES,
-    MdButton,
-    MdIcon,
-    MdProgressCircle,
-    MdSpinner,
-    MdToolbar
+    MD_BUTTON_DIRECTIVES,
+    MD_TOOLBAR_DIRECTIVES,
+    MD_PROGRESS_CIRCLE_DIRECTIVES,
+    MD_ICON_DIRECTIVES
   ],
   providers: [
     MdIconRegistry

@@ -3,12 +3,12 @@ import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, Validators } from '@a
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import {MdButton} from '@angular2-material/button';
-import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
-import { MdIcon } from '@angular2-material/icon';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
-import {MdToolbar} from '@angular2-material/toolbar';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
+import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
+import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 @Component({
   moduleId: module.id,
@@ -17,12 +17,12 @@ import {MdToolbar} from '@angular2-material/toolbar';
   styleUrls: ['language-admin.component.css'],
   directives: [
     REACTIVE_FORM_DIRECTIVES,
-    MdButton,
+    MD_BUTTON_DIRECTIVES,
     MD_CARD_DIRECTIVES,
-    MdIcon,
+    MD_ICON_DIRECTIVES,
     MD_INPUT_DIRECTIVES,
     MD_LIST_DIRECTIVES,
-    MdToolbar
+    MD_TOOLBAR_DIRECTIVES
   ]
 })
 export class LanguageAdminComponent implements OnInit {
