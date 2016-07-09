@@ -8,7 +8,8 @@
 <md-card>
   <md-card-header>
     <md-card-title>
-      <md-input [disabled]="!loaded" placeholder="Search" dividerColor="accent" ></md-input>
+      <md-input (keyup)="filterList($event)" [disabled]="!loaded"
+        placeholder="Search" dividerColor="accent" ></md-input>
     </md-card-title>
   </md-card-header>
 

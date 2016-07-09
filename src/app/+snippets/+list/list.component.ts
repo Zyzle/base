@@ -13,6 +13,7 @@ import { MD_PROGRESS_CIRCLE_DIRECTIVES } from '@angular2-material/progress-circl
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Snippet } from '../shared';
 import { CanComponentDeactivate } from '../../shared';
@@ -38,10 +39,14 @@ import { CanComponentDeactivate } from '../../shared';
 })
 export class ListComponent implements OnInit, CanComponentDeactivate {
 
-  snippets: FirebaseListObservable<Snippet[]>;
+  snippetsRemote: FirebaseListObservable<Snippet[]>;
   snippetsBackup: FirebaseListObservable<Snippet[]>;
+
+  snippets: Observable<Snippet[]>;
+
   auth: FirebaseAuthState;
   loaded: boolean = false;
+  search: string = ''
 
   constructor(private af: AngularFire) {}
 
@@ -51,14 +56,33 @@ export class ListComponent implements OnInit, CanComponentDeactivate {
       this.snippetsBackup = this.af.database.list('/snippets_to_delete/' + this.auth.uid);
     });
 
-    this.snippets = this.af.database.list('/snippets');
+    this.snippetsRemote = this.af.database.list('/snippets');
 
-    this.snippets.map(() => {
-      return true;
-    })
-    .subscribe((b: boolean) => {
-      this.loaded = b;
+    this.snippetsRemote.subscribe(() => {
+      this.loaded = true;
     });
+
+    this.snippets = this.snippetsRemote
+      .map((snps: Snippet[]) => {
+        return snps
+          .sort((o1: Snippet, o2: Snippet) =>{
+            return o1.createdDate - o2.createdDate;
+          });
+      });
+  }
+
+  filterList(event) {
+    this.snippets = this.snippetsRemote
+      .map((snps: Snippet[]) => {
+        return snps
+          .sort((o1: Snippet, o2: Snippet) =>{
+            return o1.createdDate - o2.createdDate;
+          })
+          .filter((s: Snippet) => {
+            return s.name.toLowerCase().indexOf(event.target.value) !== -1
+              || s.description.toLowerCase().indexOf(event.target.value) !== -1;
+          });
+      });
   }
 
   getImage(s: Snippet) {
@@ -70,7 +94,7 @@ export class ListComponent implements OnInit, CanComponentDeactivate {
    */
   delete(snippet: Snippet) {
     let snippetToDelete = Object.assign({}, snippet);
-    this.snippets.remove(snippet.$key);
+    this.snippetsRemote.remove(snippet.$key);
     delete snippetToDelete.$key;
     this.snippetsBackup.push(snippetToDelete);
   }
@@ -79,7 +103,7 @@ export class ListComponent implements OnInit, CanComponentDeactivate {
     let snippetToRestore = Object.assign({}, snippet);
     this.snippetsBackup.remove(snippet.$key);
     delete snippetToRestore.$key;
-    this.snippets.push(snippetToRestore);
+    this.snippetsRemote.push(snippetToRestore);
   }
 
   /**
