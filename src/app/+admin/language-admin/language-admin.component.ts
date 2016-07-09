@@ -10,6 +10,8 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
+import { Language } from '../../+snippets/shared';
+
 @Component({
   moduleId: module.id,
   selector: 'app-language-admin',
@@ -30,7 +32,7 @@ export class LanguageAdminComponent implements OnInit {
   myForm: FormGroup = this.makeForm();
   resetting: boolean = false;
 
-  languages: FirebaseListObservable<any>;
+  languages: FirebaseListObservable<Language[]>;
 
   constructor(public af: AngularFire) {}
 
@@ -48,6 +50,10 @@ export class LanguageAdminComponent implements OnInit {
 
   remove(key: string) {
     this.languages.remove(key);
+  }
+
+  getImage(lang: Language) {
+    return 'assets/' + lang.alias + '.svg';
   }
 
   private makeForm() {

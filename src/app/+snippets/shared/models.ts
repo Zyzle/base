@@ -17,5 +17,5 @@ export interface Snippet {
 export interface Language {
   alias: string;
   displayName: string;
-  $key: string;
+  $key?: string;
 }

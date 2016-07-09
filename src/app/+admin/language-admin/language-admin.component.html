@@ -14,6 +14,7 @@
     <md-list dense>
       <h3>Available Languages</h3>
       <md-list-item *ngFor="let language of languages | async">
+        <img md-list-icon [src]="getImage(language)" />
         <span md-line> {{language.displayName}} </span>
         <span md-line class="secondary"> {{language.alias}} </span>
         <button md-icon-button (click)="remove(language.$key)">

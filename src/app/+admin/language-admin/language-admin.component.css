@@ -2,3 +2,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+[md-list-icon] {
+  border-radius: 0 !important; /* boo! */
+}
