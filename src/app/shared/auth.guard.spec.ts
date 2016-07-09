@@ -7,7 +7,6 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { provide } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ReplaySubject } from 'rxjs/ReplaySubject';
@@ -32,8 +31,8 @@ describe('Guard: Auth', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(FirebaseAuth, {useClass: MockFirebaseAuth}),
-      provide(Router, {useClass: MockRouter}),
+      { provide: FirebaseAuth, useClass: MockFirebaseAuth },
+      { provide: Router, useClass: MockRouter },
       AuthGuard
     ]);
   });

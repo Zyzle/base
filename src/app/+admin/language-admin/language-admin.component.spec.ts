@@ -7,7 +7,7 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component, provide } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { LanguageAdminComponent } from './language-admin.component';
 
@@ -22,7 +22,7 @@ describe('Component: LanguageAdmin', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(AngularFire, {useClass: MockAngularFire}),
+      {provide: AngularFire, useClass: MockAngularFire },
       LanguageAdminComponent
     ]);
   });

@@ -7,7 +7,7 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component, provide } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { AngularFire } from 'angularfire2';
@@ -41,7 +41,7 @@ describe('Component: Auth', () => {
   let builder: TestComponentBuilder;
 
   beforeEachProviders(() => [
-    provide(AngularFire, {useClass: MockAngularFire}),
+    { provide: AngularFire, useClass: MockAngularFire },
     AuthComponent
   ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {

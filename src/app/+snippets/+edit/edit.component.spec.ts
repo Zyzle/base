@@ -7,7 +7,7 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component, provide } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -38,9 +38,9 @@ describe('Component: Edit', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(ActivatedRoute, {useClass: MockActivatedRoute}),
-      provide(Router, {useClass: MockRouter}),
-      provide(AngularFire, {useClass: MockAngularFire}),
+      { provide: ActivatedRoute, useClass: MockActivatedRoute },
+      { provide: Router, useClass: MockRouter },
+      { provide: AngularFire, useClass: MockAngularFire },
       EditComponent
     ]);
   });

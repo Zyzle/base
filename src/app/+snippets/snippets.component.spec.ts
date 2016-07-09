@@ -7,7 +7,7 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component, provide } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutletMap } from '@angular/router';
 
@@ -35,9 +35,9 @@ describe('Component: Snippets', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(Router, {useClass: MockRouter}),
-      provide(ActivatedRoute, {useClass: MockActivatedRoute}),
-      provide(RouterOutletMap, {useClass: MockRouterOutletMap}),
+      { provide: Router, useClass: MockRouter },
+      { provide: ActivatedRoute, useClass: MockActivatedRoute },
+      { provide: RouterOutletMap, useClass: MockRouterOutletMap },
       SnippetsComponent
     ]);
   });

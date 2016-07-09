@@ -7,7 +7,7 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component, provide } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -43,10 +43,10 @@ describe('Component: List', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(AngularFire, {useClass: MockAngularFire}),
-      provide(Http, {useClass: MockHttp}),
-      provide(Router, {useClass: MockRouter}),
-      provide(ActivatedRoute, {useClass: MockActivatedRoute}),
+      { provide: AngularFire, useClass: MockAngularFire },
+      { provide: Http, useClass: MockHttp },
+      { provide: Router, useClass: MockRouter },
+      { provide: ActivatedRoute, useClass: MockActivatedRoute },
       ListComponent
     ]);
   });

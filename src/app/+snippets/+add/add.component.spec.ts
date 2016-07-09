@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { By }           from '@angular/platform-browser';
-import { DebugElement, provide } from '@angular/core';
+import { DebugElement } from '@angular/core';
 
 import {
   addProviders, beforeEach,
@@ -30,8 +30,8 @@ describe('Component: Add', () => {
 
   beforeEach(() => {
     addProviders([
-      provide(AngularFire, {useClass: MockAngularFire}),
-      provide(Router, {useClass: MockRouter}),
+      { provide: AngularFire, useClass: MockAngularFire },
+      { provide: Router, useClass: MockRouter },
       AddComponent
     ]);
   });
