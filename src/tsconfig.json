@@ -50,6 +50,8 @@
     "app/+snippets/+list/list.component.spec.ts",
     "app/+snippets/+list/list.component.ts",
     "app/+snippets/+list/shared/index.ts",
+    "app/+snippets/+list/shared/snippet-filter.pipe.spec.ts",
+    "app/+snippets/+list/shared/snippet-filter.pipe.ts",
     "app/+snippets/index.ts",
     "app/+snippets/shared/highlight.directive.spec.ts",
     "app/+snippets/shared/highlight.directive.ts",

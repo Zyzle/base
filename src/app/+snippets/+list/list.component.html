@@ -8,7 +8,7 @@
 <md-card>
   <md-card-header>
     <md-card-title>
-      <md-input (keyup)="filterList($event)" [disabled]="!loaded"
+      <md-input [(ngModel)]="search" [disabled]="!loaded"
         placeholder="Search" dividerColor="accent" ></md-input>
     </md-card-title>
   </md-card-header>
@@ -26,7 +26,7 @@
         </md-list-item>
       </span>
 
-      <span *ngFor="let snippet of snippets | async" class="snippet-item">
+      <span *ngFor="let snippet of snippets | snippetFilter: search" class="snippet-item">
         <a md-list-item [routerLink]="[snippet.$key]">
           <img md-list-icon [src]="getImage(snippet)" />
           <span md-line class="title">{{snippet.name}}</span>

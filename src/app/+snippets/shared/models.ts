@@ -8,7 +8,7 @@ export interface Snippet {
   languageAlias: string;
   languageDisplayName: string;
   name: string;
-  updatedDate: string;
+  updatedDate: number;
   score: number;
   $key?: string;
   $value?: any;

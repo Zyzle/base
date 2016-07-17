@@ -13,8 +13,9 @@ import { MD_PROGRESS_CIRCLE_DIRECTIVES } from '@angular2-material/progress-circl
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
 
+// why does this error with just './shared'?
+import { SnippetFilterPipe } from './shared/snippet-filter.pipe';
 import { Snippet } from '../shared';
 import { CanComponentDeactivate } from '../../shared';
 
@@ -33,6 +34,7 @@ import { CanComponentDeactivate } from '../../shared';
     MD_PROGRESS_CIRCLE_DIRECTIVES,
     MD_ICON_DIRECTIVES
   ],
+  pipes: [SnippetFilterPipe],
   providers: [
     MdIconRegistry
   ]
@@ -42,11 +44,11 @@ export class ListComponent implements OnInit, CanComponentDeactivate {
   snippetsRemote: FirebaseListObservable<Snippet[]>;
   snippetsBackup: FirebaseListObservable<Snippet[]>;
 
-  snippets: Observable<Snippet[]>;
+  snippets: Snippet[];
 
   auth: FirebaseAuthState;
   loaded: boolean = false;
-  search: string = ''
+  search: string = '';
 
   constructor(private af: AngularFire) {}
 
@@ -62,26 +64,15 @@ export class ListComponent implements OnInit, CanComponentDeactivate {
       this.loaded = true;
     });
 
-    this.snippets = this.snippetsRemote
+    this.snippetsRemote
       .map((snps: Snippet[]) => {
         return snps
-          .sort((o1: Snippet, o2: Snippet) =>{
+          .sort((o1: Snippet, o2: Snippet) => {
             return o1.createdDate - o2.createdDate;
           });
-      });
-  }
-
-  filterList(event) {
-    this.snippets = this.snippetsRemote
-      .map((snps: Snippet[]) => {
-        return snps
-          .sort((o1: Snippet, o2: Snippet) =>{
-            return o1.createdDate - o2.createdDate;
-          })
-          .filter((s: Snippet) => {
-            return s.name.toLowerCase().indexOf(event.target.value) !== -1
-              || s.description.toLowerCase().indexOf(event.target.value) !== -1;
-          });
+      })
+      .subscribe((s: Snippet[]) => {
+        this.snippets = s;
       });
   }
 
