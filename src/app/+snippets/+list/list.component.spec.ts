@@ -1,3 +1,5 @@
+/* tslint:disable:no-unused-variable */
+
 import {
   addProviders,
   beforeEach,
@@ -7,8 +9,6 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -44,7 +44,6 @@ describe('Component: List', () => {
   beforeEach(() => {
     addProviders([
       { provide: AngularFire, useClass: MockAngularFire },
-      { provide: Http, useClass: MockHttp },
       { provide: Router, useClass: MockRouter },
       { provide: ActivatedRoute, useClass: MockActivatedRoute },
       ListComponent
@@ -60,22 +59,4 @@ describe('Component: List', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(ListComponentTestControllerComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(ListComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
 });
-
-@Component({
-  selector: 'test-comp',
-  template: `
-    <app-list></app-list>
-  `,
-  directives: [ListComponent]
-})
-class ListComponentTestControllerComponent {
-}

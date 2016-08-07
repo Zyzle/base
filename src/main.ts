@@ -7,8 +7,7 @@ import { FIREBASE_PROVIDERS, AuthProviders, AuthMethods, defaultFirebase,
   firebaseAuthConfig } from 'angularfire2';
 
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
-import { AppComponent } from './app/app.component';
-import { environment } from './app/environment';
+import { AppComponent, environment } from './app/';
 
 if (environment.production) {
   enableProdMode();

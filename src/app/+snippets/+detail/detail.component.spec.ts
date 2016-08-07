@@ -1,3 +1,5 @@
+/* tslint:disable:no-unused-variable */
+
 import {
   addProviders,
   beforeEach,
@@ -7,7 +9,6 @@ import {
   inject,
   ComponentFixture, TestComponentBuilder
 } from '@angular/core/testing';
-import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -53,22 +54,4 @@ describe('Component: Detail', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(DetailComponentTestControllerComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(DetailComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
 });
-
-@Component({
-  selector: 'test-comp',
-  template: `
-    <app-detail></app-detail>
-  `,
-  directives: [DetailComponent]
-})
-class DetailComponentTestControllerComponent {
-}

@@ -1,25 +1,19 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders, beforeEach,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
+import { addProviders, async, inject, describe, it, beforeEach, expect } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-beforeEach(() => {
-  addProviders([AppComponent]);
-});
-
 describe('App: Base', () => {
-  it('should create the app',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app).toBeTruthy();
-  }));
+  beforeEach(() => {
+    addProviders([AppComponent]);
+  });
 
-  it('should contain the 3 nav components',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app.navItems.length).toEqual(3);
-  }));
+  it('should create the app',
+    inject([AppComponent], (app: AppComponent) => {
+      expect(app).toBeTruthy();
+    }));
+
+  it('should have as title \'app works!\'',
+    inject([AppComponent], (app: AppComponent) => {
+    }));
 });

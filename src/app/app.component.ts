@@ -11,7 +11,6 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { AuthComponent } from './auth';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],

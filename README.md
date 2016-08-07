@@ -9,7 +9,7 @@
 This is just a bunch of Angular2 experiments mostly around using rest-apis from various sources to
 provide information to the user.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
