@@ -8,7 +8,6 @@ import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-auth',
   templateUrl: 'auth.component.html',
   styleUrls: ['auth.component.css'],

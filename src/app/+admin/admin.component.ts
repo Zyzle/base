@@ -4,7 +4,6 @@ import { LanguageAdminComponent } from './language-admin';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-admin',
   templateUrl: 'admin.component.html',
   styleUrls: ['admin.component.css'],

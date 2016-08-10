@@ -14,7 +14,6 @@ import { HighlightDirective } from '../shared/highlight.directive';
 import { Snippet } from '../shared/models';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-detail',
   templateUrl: 'detail.component.html',
   styleUrls: [

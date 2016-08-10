@@ -1,16 +1,7 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { addProviders, inject } from '@angular/core/testing';
 
 import { AngularFire } from 'angularfire2';
+
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { AuthComponent } from './auth.component';
@@ -38,28 +29,17 @@ class MockAngularFire {
 
 
 describe('Component: Auth', () => {
-  let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [
-    { provide: AngularFire, useClass: MockAngularFire },
-    AuthComponent
-  ]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
+  beforeEach(() => {
+    addProviders([
+      { provide: AngularFire, useClass: MockAngularFire },
+      AuthComponent
+    ]);
+  });
 
   it('should inject the component', inject([AuthComponent],
       (component: AuthComponent) => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(AuthComponentTestControllerComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(AuthComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
   }));
 
   it('should start with card closed and allow toggle', inject([AuthComponent],
@@ -69,13 +49,3 @@ describe('Component: Auth', () => {
       expect(component.authCardOpen).toBe(true);
     }));
 });
-
-@Component({
-  selector: 'test-comp',
-  template: `
-    <app-auth></app-auth>
-  `,
-  directives: [AuthComponent]
-})
-class AuthComponentTestControllerComponent {
-}

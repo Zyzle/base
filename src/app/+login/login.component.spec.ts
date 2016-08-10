@@ -1,15 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { By }           from '@angular/platform-browser';
-import { Component, DebugElement } from '@angular/core';
-
-import {
-  addProviders, beforeEach,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
+import { addProviders, inject } from '@angular/core/testing';
 
 import { Router } from '@angular/router';
 
@@ -32,7 +23,6 @@ class MockRouter {
 }
 
 describe('Component: login', () => {
-  let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
@@ -42,9 +32,6 @@ describe('Component: login', () => {
     ]);
   });
 
-  beforeEach(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-    builder = tcb;
-  }));
 
   it('should inject the component', inject([LoginComponent],
     (component: LoginComponent) => {
@@ -52,14 +39,3 @@ describe('Component: login', () => {
   }));
 
 });
-
-@Component({
-  selector: 'test-comp',
-  template: `
-    <app-login></app-login>
-  `,
-  directives: [LoginComponent]
-})
-class LoginComonentTestControllerComponent {
-
-}

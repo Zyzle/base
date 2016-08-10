@@ -1,15 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import {
-  addProviders, beforeEach,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
+import { addProviders, inject } from '@angular/core/testing';
 
 import { Router } from '@angular/router';
 
@@ -26,7 +17,6 @@ class MockRouter {
 }
 
 describe('Component: Add', () => {
-  let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
@@ -36,9 +26,6 @@ describe('Component: Add', () => {
     ]);
   });
 
-  beforeEach(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-    builder = tcb;
-  }));
 
   it('should inject the component', inject([AddComponent], (component: AddComponent) => {
       expect(component).toBeTruthy();

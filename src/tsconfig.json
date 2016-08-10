@@ -15,8 +15,7 @@
       "../node_modules/@types"
     ],
     "types": [
-      "jasmine",
-      "highlight.js"
+      "jasmine"
     ]
   }
 }

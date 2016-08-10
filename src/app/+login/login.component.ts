@@ -6,7 +6,6 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css'],

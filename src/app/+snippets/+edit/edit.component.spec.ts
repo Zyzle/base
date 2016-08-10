@@ -1,14 +1,5 @@
-import {
-  addProviders,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
-import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { addProviders, inject } from '@angular/core/testing';
+
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AngularFire } from 'angularfire2';
@@ -34,7 +25,6 @@ class MockAngularFire {
 }
 
 describe('Component: Edit', () => {
-  let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
@@ -45,31 +35,9 @@ describe('Component: Edit', () => {
     ]);
   });
 
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
-
   it('should inject the component', inject([EditComponent],
       (component: EditComponent) => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(EditComponentTestControllerComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(EditComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
 });
-
-@Component({
-  selector: 'test-comp',
-  template: `
-    <app-edit></app-edit>
-  `,
-  directives: [EditComponent]
-})
-class EditComponentTestControllerComponent {
-}

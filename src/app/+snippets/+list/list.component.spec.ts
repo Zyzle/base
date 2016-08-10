@@ -1,15 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { addProviders, inject } from '@angular/core/testing';
+
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ReplaySubject } from 'rxjs/ReplaySubject';
@@ -39,7 +31,6 @@ class MockActivatedRoute {
 }
 
 describe('Component: List', () => {
-  let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
@@ -49,10 +40,6 @@ describe('Component: List', () => {
       ListComponent
     ]);
   });
-
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
 
   it('should inject the component', inject([ListComponent],
       (component: ListComponent) => {

@@ -1,28 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders, beforeEach,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { addProviders, async, inject } from '@angular/core/testing';
+
 import { HighlightDirective } from './highlight.directive';
 
-@Component({
-  selector: 'test-component',
-  template: `<div highlight></div>`
-})
-class TestComponent {}
-
-
 describe('Directive: Highlight', () => {
-
-
-
   it('should create an instance', () => {
-    /*let directive = new Highlight();
-    expect(directive).toBeTruthy();*/
+    /* let directive = new Highlight();
+    expect(directive).toBeTruthy(); */
   });
 });

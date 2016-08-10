@@ -1,18 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  inject,
-  ComponentFixture, TestComponentBuilder
-} from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { addProviders, inject } from '@angular/core/testing';
+
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AngularFire } from 'angularfire2';
+
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { DetailComponent } from './detail.component';
@@ -34,7 +27,6 @@ class MockRouter {
 }
 
 describe('Component: Detail', () => {
-  let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
@@ -44,10 +36,6 @@ describe('Component: Detail', () => {
       DetailComponent
     ]);
   });
-
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
 
   it('should inject the component', inject([DetailComponent],
       (component: DetailComponent) => {

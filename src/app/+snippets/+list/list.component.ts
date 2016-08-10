@@ -20,7 +20,6 @@ import { Snippet } from '../shared';
 import { CanComponentDeactivate } from '../../shared';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-list',
   templateUrl: 'list.component.html',
   styleUrls: ['list.component.css'],

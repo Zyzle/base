@@ -12,7 +12,6 @@ import { AngularFire, FirebaseAuthState, FirebaseListObservable, FirebaseObjectO
 import { Language, Snippet } from '../shared/models';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-edit',
   templateUrl: 'edit.component.html',
   styleUrls: ['edit.component.css'],

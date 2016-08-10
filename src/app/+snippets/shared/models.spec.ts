@@ -1,15 +1,9 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders, beforeEach,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
-import {Snippet} from './models';
+import { addProviders, inject } from '@angular/core/testing';
 
-/*describe('Snippet', () => {
-  it('should create an instance', () => {
-    expect(new Snippet()).toBeTruthy();
-  });
-});*/
+import { Snippet } from './models';
+
+describe('Snippet', () => {
+
+});

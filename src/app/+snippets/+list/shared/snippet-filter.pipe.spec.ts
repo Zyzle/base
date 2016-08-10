@@ -1,11 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
+import { addProviders, async, inject } from '@angular/core/testing';
 
 import { SnippetFilterPipe } from './snippet-filter.pipe';
 
@@ -66,11 +61,14 @@ const testData: Snippet[] = [
   }
 ];
 
-beforeEach(() => {
-  this.pipe = new SnippetFilterPipe();
-});
+
 
 describe('Pipe: SnippetFilter', () => {
+
+  beforeEach(() => {
+    this.pipe = new SnippetFilterPipe();
+  });
+
   it('create an instance', () => {
     expect(this.pipe).toBeTruthy();
   });

@@ -13,7 +13,6 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { Language } from '../../+snippets/shared';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-language-admin',
   templateUrl: 'language-admin.component.html',
   styleUrls: ['language-admin.component.css'],

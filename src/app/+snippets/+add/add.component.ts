@@ -12,7 +12,6 @@ import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularf
 import { Language, Snippet } from '../shared';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-add',
   templateUrl: 'add.component.html',
   styleUrls: ['add.component.css'],

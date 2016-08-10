@@ -1,6 +1,6 @@
 import { AfterViewInit, AfterViewChecked, Directive, ElementRef } from '@angular/core';
 
-import * as hljs from 'highlight.js';
+declare var hljs: any;
 
 @Directive({
   selector: '[highlight]'
