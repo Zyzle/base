@@ -7,16 +7,20 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { CoreModule } from './core/core.module';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
   onResize(width:  number) {
-    console.log('called resize', width);
     this.isSideBySide = width > this.sideBySideWidth;
   }
 }
