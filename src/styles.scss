@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$base-app-primary: mat-palette($mat-blue-grey, 500, 100, 700);
+$base-app-accent:  mat-palette($mat-light-blue, 500);
+
+// The warn palette is optional (defaults to red).
+$base-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$base-app-theme: mat-light-theme($base-app-primary, $base-app-accent, $base-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+html, body, base-root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+base-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-sidenav-content {
+  display: flex !important;
+  flex-flow: column;
+  align-items: stretch;
+}
+
+.fill-remaining {
+  flex: 1 1 auto;
+}
+
+// .card-spaced {
+//   margin: 15px;
+// }
+
+@include angular-material-theme($base-app-theme);
+
+// @font-face {
+//   font-family: 'Material Icons';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('/assets/fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+//   src: local('Material Icons'),
+//        local('MaterialIcons-Regular'),
+//        url('/assets/fonts/MaterialIcons-Regular.woff2') format('woff2'),
+//        url('/assets/fonts/MaterialIcons-Regular.woff') format('woff'),
+//        url('/assets/fonts/MaterialIcons-Regular.ttf') format('truetype');
+// }
+
+// .material-icons {
+//   font-family: 'Material Icons';
+//   font-weight: normal;
+//   font-style: normal;
+//   font-size: 24px;  /* Preferred icon size */
+//   display: inline-block;
+//   line-height: 1;
+//   text-transform: none;
+//   letter-spacing: normal;
+//   word-wrap: normal;
+//   white-space: nowrap;
+//   direction: ltr;
+
+//   /* Support for all WebKit browsers. */
+//   -webkit-font-smoothing: antialiased;
+//   /* Support for Safari and Chrome. */
+//   text-rendering: optimizeLegibility;
+
+//   /* Support for Firefox. */
+//   -moz-osx-font-smoothing: grayscale;
+
+//   /* Support for IE. */
+//   font-feature-settings: 'liga';
+// }

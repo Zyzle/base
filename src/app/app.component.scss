@@ -1,0 +1,47 @@
+md-sidenav-container {
+  height: 100%;
+}
+
+md-progress-bar {
+  position: fixed;
+  top: 64px;
+  z-index: 20;
+}
+
+md-toolbar {
+  z-index: 1;
+}
+
+.divider {
+  height: 2px;
+  border: 0;
+  border-top: 2px solid #bdbdbd;
+  padding: 0;
+  margin: 0.5em 1.5em;
+}
+
+.main-content {
+  height: 100%;
+  padding: 2em;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  overflow-y: scroll;
+}
+
+.title {
+  align-items: baseline;
+}
+
+.tiny {
+  font-size: .6em;
+
+  a {
+    text-decoration: none;
+    color: inherit
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
