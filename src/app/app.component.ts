@@ -1,6 +1,9 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
 
+import { Store } from '@ngrx/store';
+
+import { AppState } from './app.reducers';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -22,7 +25,7 @@ export class AppComponent implements OnInit {
   get isOpened() { return this.isSideBySide && this.isNavDock; }
   get mode() { return this.isSideBySide ? 'side' : 'over'; }
 
-  constructor() {}
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
     this.onResize(window.innerWidth);

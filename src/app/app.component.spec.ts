@@ -2,6 +2,8 @@ import { TestBed, async } from '@angular/core/testing';
 import { MaterialModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { Store } from '@ngrx/store';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -14,6 +16,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        {
+          provide: Store,
+          useValue: jasmine.createSpyObj('store', ['select'])
+        }
+      ]
     }).compileComponents();
   }));
 
