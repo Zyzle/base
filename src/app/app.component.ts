@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from './app.reducers';
 import { environment } from '../environments/environment';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'base-root',
@@ -25,13 +26,19 @@ export class AppComponent implements OnInit {
   get isOpened() { return this.isSideBySide && this.isNavDock; }
   get mode() { return this.isSideBySide ? 'side' : 'over'; }
 
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppState>, private _auth: AuthService) {}
 
   ngOnInit() {
     this.onResize(window.innerWidth);
   }
 
-  logout() { }
+  logout() {
+    this._auth.logout();
+  }
+
+  login() {
+    this._auth.login();
+  }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
   onResize(width:  number) {

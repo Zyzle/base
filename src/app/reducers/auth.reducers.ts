@@ -1,25 +1,30 @@
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as firebase from 'firebase/app';
 
 import * as auth from '../actions/auth.actions';
 
 export interface AuthState {
-  pending: boolean;
-  loggedIn: boolean;
-  username: string;
-  id: string;
-  failedAttempt: boolean;
+  displayName: string;
+  email: string;
+  phoneNumber: string;
+  photoURL: string;
+  providerId: string;
+  uid: string;
 }
 
 const initialState: AuthState = {
-  pending: false,
-  loggedIn: false,
-  username: '',
-  id: '',
-  failedAttempt: false
+  displayName: '',
+  email: '',
+  phoneNumber: '',
+  photoURL: '',
+  providerId: '',
+  uid: ''
 };
 
 export function authReducer(state: AuthState = initialState, action: auth.Actions): AuthState {
   switch (action.type) {
+    case auth.UPDATE_AUTH:
+      return { ...action.payload };
     case auth.LOGOUT:
       return { ...initialState };
     default:
@@ -28,3 +33,4 @@ export function authReducer(state: AuthState = initialState, action: auth.Action
 }
 
 export const getAuth = createFeatureSelector<AuthState>('auth');
+export const getAuthenticated = createSelector(getAuth, (state: AuthState) => state.uid !== '');

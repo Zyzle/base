@@ -4,6 +4,9 @@ import { MaterialModule } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,10 +26,13 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     StoreModule.forRoot(appReducers),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
     AppRoutingModule,
-    CoreModule.forRoot()
+    CoreModule.forRoot({ })
   ],
   providers: [],
   bootstrap: [AppComponent]

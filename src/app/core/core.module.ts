@@ -1,6 +1,9 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CoreModuleConfig } from './core-module-config';
+import { AuthService } from './auth.service';
+
 @NgModule({
   imports: [
     CommonModule
@@ -9,10 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class CoreModule {
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(config: CoreModuleConfig): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: []
+      providers: [
+        {
+          provide: CoreModuleConfig,
+          useValue: config
+        },
+        AuthService
+      ]
     };
   }
 
