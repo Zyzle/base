@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AngularFireModule } from 'angularfire2';
@@ -16,6 +17,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { CoreModule } from './core/core.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { appReducers } from './app.reducers';
+import { AuthEffects } from './effects/auth.effects';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -32,6 +34,7 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
     AppRoutingModule,
     CoreModule.forRoot({ })

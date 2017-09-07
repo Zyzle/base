@@ -4,8 +4,8 @@ import { MdSidenav } from '@angular/material';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './app.reducers';
+import * as auth from './actions/auth.actions';
 import { environment } from '../environments/environment';
-import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'base-root',
@@ -26,18 +26,18 @@ export class AppComponent implements OnInit {
   get isOpened() { return this.isSideBySide && this.isNavDock; }
   get mode() { return this.isSideBySide ? 'side' : 'over'; }
 
-  constructor(private _store: Store<AppState>, private _auth: AuthService) {}
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
     this.onResize(window.innerWidth);
   }
 
   logout() {
-    this._auth.logout();
+    this._store.dispatch(new auth.LogoutAction());
   }
 
   login() {
-    this._auth.login();
+    this._store.dispatch(new auth.LoginAction());
   }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
