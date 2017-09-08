@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { MaterialModule } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { Store } from '@ngrx/store';
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        NoopAnimationsModule,
         MaterialModule
       ],
       declarations: [
