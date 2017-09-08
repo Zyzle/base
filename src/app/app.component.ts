@@ -2,8 +2,10 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MdSidenav } from '@angular/material';
 
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 import { AppState } from './app.reducers';
+import { AuthState, getAuth } from './reducers/auth.reducers';
 import * as auth from './actions/auth.actions';
 import { environment } from '../environments/environment';
 
@@ -19,6 +21,7 @@ export class AppComponent implements OnInit {
 
   private sideBySideWidth = 960;
 
+  authState$: Observable<AuthState>;
   isSideBySide = true;
   isNavDock = true;
 
@@ -26,7 +29,9 @@ export class AppComponent implements OnInit {
   get isOpened() { return this.isSideBySide && this.isNavDock; }
   get mode() { return this.isSideBySide ? 'side' : 'over'; }
 
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppState>) {
+    this.authState$ = this._store.select(getAuth);
+  }
 
   ngOnInit() {
     this.onResize(window.innerWidth);

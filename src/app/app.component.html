@@ -34,9 +34,9 @@
         <span md-line>Bookmarks</span>
       </a>
 
-      <hr class="divider" />
+      <hr class="divider" *ngIf="(authState$ | async)?.uid" />
 
-      <a id="logout" md-list-item (click)="logout()">
+      <a id="logout" md-list-item (click)="logout()" *ngIf="(authState$ | async)?.uid">
         <md-icon md-list-icon>lock</md-icon>
         <span md-line>Logout</span>
       </a>
