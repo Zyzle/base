@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate, CanLoad {
       .take(1)
       .map((authed) => {
         if (!authed) {
-          // this.router.navigate(['/login']);
+          this.store.dispatch(new LoginRedirect());
         }
         return authed;
       });

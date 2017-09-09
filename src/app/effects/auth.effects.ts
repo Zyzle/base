@@ -25,6 +25,12 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$.ofType(authActions.LOGOUT, authActions.LOGIN_REDIRECT)
     .do(() => {
+      this.router.navigate(['/login']);
+    });
+
+  @Effect({ dispatch: false })
+  userLoggedIn$ = this.actions$.ofType(authActions.UPDATE_AUTH)
+    .do(() => {
       this.router.navigate(['/']);
     });
 

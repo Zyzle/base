@@ -19,12 +19,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { appReducers } from './app.reducers';
 import { AuthEffects } from './effects/auth.effects';
 import { environment } from '../environments/environment';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

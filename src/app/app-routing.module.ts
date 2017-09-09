@@ -3,12 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './auth.guard';
 import { HomePageComponent } from './home-page/home-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 const APP_ROUTES: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: HomePageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent
   },
   {
     path: 'snippets',
