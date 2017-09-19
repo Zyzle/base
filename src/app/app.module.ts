@@ -20,13 +20,15 @@ import { appReducers } from './app.reducers';
 import { AuthEffects } from './effects/auth.effects';
 import { environment } from '../environments/environment';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundPageComponent,
     HomePageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

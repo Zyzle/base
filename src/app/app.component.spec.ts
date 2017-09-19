@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -16,7 +17,8 @@ describe('AppComponent', () => {
         MaterialModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        UserInfoComponent
       ],
       providers: [
         {

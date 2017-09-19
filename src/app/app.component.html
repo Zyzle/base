@@ -7,6 +7,7 @@
     <span class="tiny"><a [routerLink]="['changelog']">v{{ version }}</a></span>
   </div>
   <span class="fill-remaining"></span>
+  <base-user-info [auth]="(authState$ | async)" *ngIf="(authState$ | async)?.uid"></base-user-info>
   <!-- <button md-icon-button (click)="login()">
     <md-icon>account_circle</md-icon>
   </button>
