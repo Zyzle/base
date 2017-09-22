@@ -1,10 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { Store } from '@ngrx/store';
 
+import { AppMaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         NoopAnimationsModule,
-        MaterialModule
+        AppMaterialModule
       ],
       declarations: [
         AppComponent,

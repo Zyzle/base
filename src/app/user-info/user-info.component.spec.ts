@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
 import { By } from '@angular/platform-browser';
 
+import { AppMaterialModule } from '../app-material.module';
 import { AuthState } from '../reducers/auth.reducers';
 import { UserInfoComponent } from './user-info.component';
 
@@ -11,7 +11,7 @@ describe('UserInfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MaterialModule ],
+      imports: [ AppMaterialModule ],
       declarations: [ UserInfoComponent ]
     })
     .compileComponents();
