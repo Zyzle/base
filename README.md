@@ -1,5 +1,8 @@
 # Base
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d39be36d6aa64a81a597397ff827056e)](https://www.codacy.com/app/n1l0c2501/base?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Zyzle/base&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d39be36d6aa64a81a597397ff827056e)](https://www.codacy.com/app/n1l0c2501/base?utm_source=github.com&utm_medium=referral&utm_content=Zyzle/base&utm_campaign=Badge_Coverage)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
 ## Development server
