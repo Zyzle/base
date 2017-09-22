@@ -2,15 +2,22 @@ language: node_js
 sudo: false
 
 node_js:
-  - '7'
+- '7'
 
 cache:
   yarn: true
   directories:
-    - node_modules
+  - node_modules
 
 script:
 - yarn run travis
 
 after_success:
--  cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+- cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+- yarn run build-deploy
+
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: VK9+rTl1pwEbZAWX5cRKwg3BA1kkqcCDEWafV1re3mjLkdAsdAFb8/LIg3+NXMDdgXsyRWxOfBe906k4/xZdTvAWVyCJ5r/fDGrZNo4U69Mi4auaEQpVKsvWWGEKE1syZ12JpaNW4fy0WkX0DF8nRMvUPrQCMGS8xkAi+6eZESs=

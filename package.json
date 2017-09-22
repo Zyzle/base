@@ -1,6 +1,6 @@
 {
   "name": "base",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "travis": "ng test --singleRun -cc --progress=false"
+    "travis": "ng test --singleRun -cc --progress=false",
+    "build-deploy": "ng build --prod --aot --build-optimizer --progress=false"
   },
   "private": true,
   "dependencies": {
