@@ -1,4 +1,7 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { Store } from '@ngrx/store';
 
 import { SnippetsMainPageComponent } from './snippets-main-page.component';
 
@@ -8,7 +11,14 @@ describe('SnippetsMainPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnippetsMainPageComponent ]
+      declarations: [ SnippetsMainPageComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {
+          provide: Store,
+          useValue: jasmine.createSpyObj('store', ['select', 'dispatch'])
+        }
+      ]
     })
     .compileComponents();
   }));

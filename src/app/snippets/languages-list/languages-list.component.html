@@ -1,0 +1,28 @@
+<md-table #table [dataSource]="languagesSource" mdSort>
+
+  <ng-container cdkColumnDef="image">
+    <md-header-cell *cdkHeaderCellDef>Image</md-header-cell>
+    <md-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.alias)" class="table-image" /></md-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="alias">
+    <md-header-cell *cdkHeaderCellDef>Alias</md-header-cell>
+    <md-cell *cdkCellDef="let row">{{ row.alias }}</md-cell>
+  </ng-container>
+
+  <ng-container cdkColumnDef="displayName">
+    <md-header-cell *cdkHeaderCellDef>Display Name</md-header-cell>
+    <md-cell *cdkCellDef="let row">{{ row.displayName }}</md-cell>
+  </ng-container>
+
+  <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+  <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+
+</md-table>
+
+<md-paginator #paginator
+  [length]="languagesDatabase.data.length"
+  [pageIndex]="0"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 50]">
+</md-paginator>
