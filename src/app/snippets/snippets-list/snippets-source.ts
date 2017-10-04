@@ -1,23 +1,23 @@
 import { DataSource } from '@angular/cdk/table';
-import { MdPaginator, MdSort } from '@angular/material';
+import { MdPaginator, MdSort} from '@angular/material';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 
-import { LanguagesDatabase } from './languages-database';
-import { Language } from '../snippets.models';
+import { SnippetsDatabase } from './snippets-database';
+import { Snippet } from '../snippets.models';
 
-export class LanguagesSource extends DataSource<Language> {
+export class SnippetsSource extends DataSource<Snippet> {
 
-  constructor(private _languagesDatabase: LanguagesDatabase, private _paginator: MdPaginator,
+  constructor(private _SnippetsDatabase: SnippetsDatabase, private _paginator: MdPaginator,
     private _sort: MdSort) {
     super();
   }
 
-  connect(): Observable<Language[]> {
+  connect(): Observable<Snippet[]> {
     const displayDataChanges = [
-      this._languagesDatabase.dataChange$,
+      this._SnippetsDatabase.dataChange$,
       this._paginator.page,
       this._sort.sortChange
     ];
@@ -33,7 +33,8 @@ export class LanguagesSource extends DataSource<Language> {
 
   disconnect() { }
 
-  getSortedData(): Language[] {
-    return this._languagesDatabase.data.slice();
+  getSortedData(): Snippet[] {
+    return this._SnippetsDatabase.data.slice();
   }
+
 }

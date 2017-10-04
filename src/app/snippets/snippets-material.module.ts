@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
-import { MdIconModule, MdPaginatorModule, MdSortModule, MdTableModule } from '@angular/material';
+import { MdIconModule, MdPaginatorModule, MdSortModule, MdTableModule, MdTooltipModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -8,14 +8,16 @@ import { MdIconModule, MdPaginatorModule, MdSortModule, MdTableModule } from '@a
     MdIconModule,
     MdPaginatorModule,
     MdSortModule,
-    MdTableModule
+    MdTableModule,
+    MdTooltipModule
   ],
   exports: [
     CdkTableModule,
     MdIconModule,
     MdPaginatorModule,
     MdSortModule,
-    MdTableModule
+    MdTableModule,
+    MdTooltipModule
   ]
 })
 export class SnippetsMaterialModule { }

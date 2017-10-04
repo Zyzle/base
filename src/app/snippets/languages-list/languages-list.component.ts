@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { Http } from '@angular/http';
 import { MdPaginator, MdSort } from '@angular/material';
 
 import { LanguagesDatabase } from './languages-database';
