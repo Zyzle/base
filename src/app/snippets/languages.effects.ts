@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Effect } from '@ngrx/effects';
 import { DataSnapshot } from 'firebase/database';
-import { AngularFireDatabase,  FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAction, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/do';
 
 import * as SnippetsActions from './snippets.actions';
 import { Language } from './snippets.models';
@@ -11,40 +13,33 @@ import { Language } from './snippets.models';
 @Injectable()
 export class LanguagesEffects {
 
-  private _languages: FirebaseListObservable<Language[]>;
-  private _addedObservable: Subject<Language> = new Subject();
-  private _changedObservable: Subject<Language> = new Subject();
-  private _removedObservable: Subject<string> = new Subject();
+  private _languages: AngularFireList<Language>;
+  private _stateChange: Subject<AngularFireAction<DataSnapshot>> = new Subject();
+  private _listSubscription: Subscription;
 
   @Effect()
-  addedEffect$ = this._addedObservable.map((lang) => {
-    return new SnippetsActions.LanguageAddAction(lang);
-  });
-
-  @Effect()
-  changedEffect$ = this._changedObservable.map((lang) => {
-    return new SnippetsActions.LanguageUpdateActon(lang);
-  });
-
-  @Effect()
-  removedEffect$ = this._removedObservable.map((key) => {
-    return new SnippetsActions.LanguageRemoveAction(key);
-  });
-
+  languageEffect$ = this._stateChange
+    .map((action) => {
+      switch (action.type) {
+        case 'child_added':
+          return new SnippetsActions.LanguageAddAction(this.mergeWithKey(action.payload));
+        case 'child_removed':
+          return new SnippetsActions.LanguageRemoveAction(action.payload.key);
+        case 'child_changed':
+          return new SnippetsActions.LanguageUpdateActon(this.mergeWithKey(action.payload));
+      }
+    });
 
   constructor(private _db: AngularFireDatabase) {
-    this._languages = this._db.list('/languages');
+    this._languages = this._db.list<Language>('/languages');
 
-    this._languages.$ref.ref.on('child_added', (x) => {
-      this._addedObservable.next(this.mergeWithKey(x));
-    });
-    this._languages.$ref.ref.on('child_changed', (x) => {
-      this._changedObservable.next(this.mergeWithKey(x));
-    });
-    this._languages.$ref.ref.on('child_removed', (x) => {
-      this._removedObservable.next(x.key);
-    });
+    this._listSubscription = this._languages.stateChanges().do((action) => {
+      this._stateChange.next(action);
+    }).subscribe();
+  }
 
+  destroy() {
+    this._listSubscription.unsubscribe();
   }
 
   private mergeWithKey(firebaseObject: DataSnapshot): Language {

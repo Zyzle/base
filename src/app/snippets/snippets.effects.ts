@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Effect } from '@ngrx/effects';
 import { DataSnapshot } from 'firebase/database';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAction, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/do';
 
 import * as SnippetsActions from './snippets.actions';
 import { Snippet } from './snippets.models';
@@ -11,40 +13,33 @@ import { Snippet } from './snippets.models';
 @Injectable()
 export class SnippetsEffects {
 
-  private _snippets: FirebaseListObservable<Snippet[]>;
-  private _addedObservable: Subject<Snippet> = new Subject();
-  private _changedObservable: Subject<Snippet> = new Subject();
-  private _removedObservable: Subject<string> = new Subject();
+  private _snippets: AngularFireList<Snippet>;
+  private _stateChange: Subject<AngularFireAction<DataSnapshot>> = new Subject();
+  private _listSubscription: Subscription;
 
   @Effect()
-  addedEffect$ = this._addedObservable.map((snippet) => {
-    return new SnippetsActions.SnippetAddAction(snippet);
-  });
-
-  @Effect()
-  changedEffect$ = this._changedObservable.map((snippet) => {
-    return new SnippetsActions.SnippetUpdateAction(snippet);
-  });
-
-  @Effect()
-  removedEffect$ = this._removedObservable.map((key) => {
-    return new SnippetsActions.SnippetRemoveAction(key);
-  });
+  snippetEffect$ = this._stateChange
+    .map((action) => {
+      switch (action.type) {
+        case 'child_added':
+          return new SnippetsActions.SnippetAddAction(this.mergeWithKey(action.payload));
+        case 'child_removed':
+          return new SnippetsActions.SnippetRemoveAction(action.payload.key);
+        case 'child_changed':
+          return new SnippetsActions.SnippetUpdateAction(this.mergeWithKey(action.payload));
+      }
+    });
 
   constructor(private _db: AngularFireDatabase) {
-    this._snippets = this._db.list('/snippets');
+    this._snippets = this._db.list<Snippet>('/snippets');
 
-    this._snippets.$ref.ref.on('child_added', (x) => {
-      this._addedObservable.next(this.mergeWithKey(x));
-    });
+    this._listSubscription = this._snippets.stateChanges().do((action) => {
+      this._stateChange.next(action);
+    }).subscribe();
+  }
 
-    this._snippets.$ref.ref.on('child_changed', (x) => {
-      this._changedObservable.next(this.mergeWithKey(x));
-    });
-
-    this._snippets.$ref.ref.on('child_removed', (x) => {
-      this._removedObservable.next(x.key);
-    });
+  destroy() {
+    this._listSubscription.unsubscribe();
   }
 
   private mergeWithKey(firebaseObject: DataSnapshot): Snippet {
