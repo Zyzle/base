@@ -1,8 +1,9 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 
-import { LanguagesDatabase } from './languages-database';
-import { LanguagesSource } from './languages-source';
+// import { LanguagesDatabase } from './languages-database';
+// import { LanguagesSource } from './languages-source';
+import { ListDatabase, ListSource } from '../../core/list-tools';
 import { Language } from '../snippets.models';
 
 @Component({
@@ -21,8 +22,8 @@ export class LanguagesListComponent implements OnChanges, OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  languagesDatabase: LanguagesDatabase;
-  languagesSource: LanguagesSource | null;
+  languagesDatabase: ListDatabase<Language>;
+  languagesSource: ListSource<Language> | null;
   displayedColumns = ['image', 'alias', 'displayName'];
 
   constructor() { }
@@ -34,8 +35,8 @@ export class LanguagesListComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    this.languagesDatabase = new LanguagesDatabase(this.languages);
-    this.languagesSource = new LanguagesSource(this.languagesDatabase, this.paginator, this.sort);
+    this.languagesDatabase = new ListDatabase(this.languages);
+    this.languagesSource = new ListSource(this.languagesDatabase, this.paginator, this.sort);
   }
 
   getSvgPath(alias) {

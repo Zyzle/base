@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 
-import { SnippetsDatabase } from './snippets-database';
-import { SnippetsSource } from './snippets-source';
+import { ListDatabase, ListSource } from '../../core/list-tools';
 import { Snippet } from '../snippets.models';
 
 @Component({
@@ -21,8 +20,8 @@ export class SnippetsListComponent implements OnChanges, OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  snippetsDatabase: SnippetsDatabase;
-  snippetsSource: SnippetsSource | null;
+  snippetsDatabase: ListDatabase<Snippet>;
+  snippetsSource: ListSource<Snippet> | null;
   displayedColumns = ['image', 'name', 'score', 'updated'];
 
   constructor() { }
@@ -34,8 +33,8 @@ export class SnippetsListComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    this.snippetsDatabase = new SnippetsDatabase(this.snippets);
-    this.snippetsSource = new SnippetsSource(this.snippetsDatabase, this.paginator, this.sort);
+    this.snippetsDatabase = new ListDatabase(this.snippets);
+    this.snippetsSource = new ListSource(this.snippetsDatabase, this.paginator, this.sort);
   }
 
   getSvgPath(alias) {
