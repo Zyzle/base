@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "travis": "ng test --singleRun -cc --progress=false",
-    "build-deploy": "ng build --prod --aot --build-optimizer --progress=false"
+    "build-deploy": "ng build --prod --aot --build-optimizer --progress=false",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "private": true,
   "dependencies": {
