@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/table';
-import { MdPaginator, MdSort } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
@@ -10,8 +10,8 @@ import { Language } from '../snippets.models';
 
 export class LanguagesSource extends DataSource<Language> {
 
-  constructor(private _languagesDatabase: LanguagesDatabase, private _paginator: MdPaginator,
-    private _sort: MdSort) {
+  constructor(private _languagesDatabase: LanguagesDatabase, private _paginator: MatPaginator,
+    private _sort: MatSort) {
     super();
   }
 

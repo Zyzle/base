@@ -1,33 +1,33 @@
-<md-table #table [dataSource]="snippetsSource" mdSort>
+<mat-table #table [dataSource]="snippetsSource" matSort>
 
   <ng-container cdkColumnDef="image">
-    <md-header-cell *cdkHeaderCellDef>Language</md-header-cell>
-    <md-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.languageAlias)" class="table-image" /></md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Language</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.languageAlias)" class="table-image" /></mat-cell>
   </ng-container>
 
   <ng-container cdkColumnDef="name">
-    <md-header-cell *cdkHeaderCellDef>Name</md-header-cell>
-    <md-cell *cdkCellDef="let row" [mdTooltip]="row.description">{{ row.name }}</md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *cdkCellDef="let row" [matTooltip]="row.description">{{ row.name }}</mat-cell>
   </ng-container>
 
   <ng-container cdkColumnDef="score">
-    <md-header-cell *cdkHeaderCellDef>Score</md-header-cell>
-    <md-cell *cdkCellDef="let row">{{ row.score }}</md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Score</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">{{ row.score }}</mat-cell>
   </ng-container>
 
   <ng-container cdkColumnDef="updated">
-    <md-header-cell *cdkHeaderCellDef>Last Updated</md-header-cell>
-    <md-cell *cdkCellDef="let row">{{ row.updatedDate | date }}</md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Last Updated</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">{{ row.updatedDate | date }}</mat-cell>
   </ng-container>
 
-  <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-  <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
 
-</md-table>
+</mat-table>
 
-<md-paginator #paginator
+<mat-paginator #paginator
   [length]="snippetsDatabase.data.length"
   [pageIndex]="0"
   [pageSize]="25"
   [pageSizeOptions]="[10, 25, 50, 100]">
-</md-paginator>
+</mat-paginator>

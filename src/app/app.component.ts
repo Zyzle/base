@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -16,8 +16,8 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild(MdSidenav)
-  sidenav: MdSidenav;
+  @ViewChild(MatSidenav)
+  sidenav: MatSidenav;
 
   private sideBySideWidth = 960;
 

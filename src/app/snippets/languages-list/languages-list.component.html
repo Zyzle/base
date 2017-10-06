@@ -1,28 +1,28 @@
-<md-table #table [dataSource]="languagesSource" mdSort>
+<mat-table #table [dataSource]="languagesSource" matSort>
 
   <ng-container cdkColumnDef="image">
-    <md-header-cell *cdkHeaderCellDef>Image</md-header-cell>
-    <md-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.alias)" class="table-image" /></md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Image</mat-header-cell>
+    <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.alias)" class="table-image" /></mat-cell>
   </ng-container>
 
   <ng-container cdkColumnDef="alias">
-    <md-header-cell *cdkHeaderCellDef>Alias</md-header-cell>
-    <md-cell *cdkCellDef="let row">{{ row.alias }}</md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Alias</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">{{ row.alias }}</mat-cell>
   </ng-container>
 
   <ng-container cdkColumnDef="displayName">
-    <md-header-cell *cdkHeaderCellDef>Display Name</md-header-cell>
-    <md-cell *cdkCellDef="let row">{{ row.displayName }}</md-cell>
+    <mat-header-cell *cdkHeaderCellDef>Display Name</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">{{ row.displayName }}</mat-cell>
   </ng-container>
 
-  <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-  <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
 
-</md-table>
+</mat-table>
 
-<md-paginator #paginator
+<mat-paginator #paginator
   [length]="languagesDatabase.data.length"
   [pageIndex]="0"
   [pageSize]="10"
   [pageSizeOptions]="[5, 10, 25, 50]">
-</md-paginator>
+</mat-paginator>

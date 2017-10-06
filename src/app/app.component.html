@@ -1,6 +1,6 @@
-<md-toolbar color="primary" class="mat-elevation-z2">
-  <button md-icon-button (click)="sidenav.toggle()">
-    <md-icon>menu</md-icon>
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
   </button>
   <div class="title">
     <span>Base</span>&nbsp;&nbsp;
@@ -8,44 +8,44 @@
   </div>
   <span class="fill-remaining"></span>
   <base-user-info [auth]="(authState$ | async)" *ngIf="(authState$ | async)?.uid"></base-user-info>
-  <!-- <button md-icon-button (click)="login()">
-    <md-icon>account_circle</md-icon>
+  <!-- <button mat-icon-button (click)="login()">
+    <mat-icon>account_circle</mat-icon>
   </button>
-  <button md-icon-button (click)="logout()">
-    <md-icon>account_circle</md-icon>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>account_circle</mat-icon>
   </button> -->
 
-</md-toolbar>
+</mat-toolbar>
 
-<!-- <md-progress-bar *ngIf="loading$ | async" color="accent" mode="indeterminate"></md-progress-bar> -->
+<!-- <mat-progress-bar *ngIf="loading$ | async" color="accent" mode="indeterminate"></mat-progress-bar> -->
 
-<md-sidenav-container>
-  <md-sidenav [opened]="isOpened" [mode]="mode" #sidenav class="mat-elevation-z2">
-    <md-nav-list>
-      <a md-list-item [routerLink]="['']">
-        <md-icon md-list-icon>home</md-icon>
-        <span md-line>Home</span>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="isOpened" [mode]="mode" #sidenav class="mat-elevation-z2">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['']">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span mat-line>Home</span>
       </a>
-      <a md-list-item [routerLink]="['snippets']">
-        <md-icon md-list-icon>content_cut</md-icon>
-        <span md-line>Snippets</span>
+      <a mat-list-item [routerLink]="['snippets']">
+        <mat-icon mat-list-icon>content_cut</mat-icon>
+        <span mat-line>Snippets</span>
       </a>
-      <a md-list-item [routerLink]="['bookmarks']">
-        <md-icon md-list-icon>bookmark</md-icon>
-        <span md-line>Bookmarks</span>
+      <a mat-list-item [routerLink]="['bookmarks']">
+        <mat-icon mat-list-icon>bookmark</mat-icon>
+        <span mat-line>Bookmarks</span>
       </a>
 
       <hr class="divider" *ngIf="(authState$ | async)?.uid" />
 
-      <a id="logout" md-list-item (click)="logout()" *ngIf="(authState$ | async)?.uid">
-        <md-icon md-list-icon>lock</md-icon>
-        <span md-line>Logout</span>
+      <a id="logout" mat-list-item (click)="logout()" *ngIf="(authState$ | async)?.uid">
+        <mat-icon mat-list-icon>lock</mat-icon>
+        <span mat-line>Logout</span>
       </a>
-    </md-nav-list>
-  </md-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
 
   <main class="main-content">
     <router-outlet hidden="true"></router-outlet>
   </main>
 
-</md-sidenav-container>
+</mat-sidenav-container>

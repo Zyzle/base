@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { MdPaginator, MdSort } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 
 import { SnippetsDatabase } from './snippets-database';
 import { SnippetsSource } from './snippets-source';
@@ -15,11 +15,11 @@ export class SnippetsListComponent implements OnChanges, OnInit {
   @Input()
   snippets: Snippet[];
 
-  @ViewChild(MdPaginator)
-  paginator: MdPaginator;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
-  @ViewChild(MdSort)
-  sort: MdSort;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   snippetsDatabase: SnippetsDatabase;
   snippetsSource: SnippetsSource | null;

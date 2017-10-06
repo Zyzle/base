@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
-import { MdIconModule, MdPaginatorModule, MdSortModule, MdTableModule, MdTooltipModule } from '@angular/material';
+import { MatIconModule, MatPaginatorModule, MatSortModule, MatTableModule, MatTooltipModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CdkTableModule,
-    MdIconModule,
-    MdPaginatorModule,
-    MdSortModule,
-    MdTableModule,
-    MdTooltipModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatTooltipModule
   ],
   exports: [
     CdkTableModule,
-    MdIconModule,
-    MdPaginatorModule,
-    MdSortModule,
-    MdTableModule,
-    MdTooltipModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatTooltipModule
   ]
 })
 export class SnippetsMaterialModule { }

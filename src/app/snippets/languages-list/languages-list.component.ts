@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { MdPaginator, MdSort } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 
 import { LanguagesDatabase } from './languages-database';
 import { LanguagesSource } from './languages-source';
@@ -15,11 +15,11 @@ export class LanguagesListComponent implements OnChanges, OnInit {
   @Input()
   languages: Language[];
 
-  @ViewChild(MdPaginator)
-  paginator: MdPaginator;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
-  @ViewChild(MdSort)
-  sort: MdSort;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   languagesDatabase: LanguagesDatabase;
   languagesSource: LanguagesSource | null;

@@ -8,7 +8,7 @@ import * as auth from '../actions/auth.actions';
 @Component({
   selector: 'base-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
 
