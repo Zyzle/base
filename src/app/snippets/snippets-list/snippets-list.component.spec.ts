@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SnippetsMaterialModule } from '../snippets-material.module';
 
@@ -13,6 +14,7 @@ describe('SnippetsListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         NoopAnimationsModule,
+        RouterTestingModule.withRoutes([]),
         SnippetsMaterialModule
       ],
       declarations: [ SnippetsListComponent ]

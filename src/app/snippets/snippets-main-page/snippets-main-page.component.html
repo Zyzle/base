@@ -1,2 +1,10 @@
-<!-- <base-languages-list [languages]="languagesList$ | async"></base-languages-list> -->
-<base-snippets-list [snippets]="snippetsList$ | async"></base-snippets-list>
+<mat-tab-group backgroundColor="accent" dynamicHeight="true">
+  <mat-tab label="Snippets" class="padded-tab">
+    <base-snippets-list [snippets]="snippetsList$ | async"></base-snippets-list>
+  </mat-tab>
+  <mat-tab label="Languages" class="padded-tab">
+    <base-languages-list [languages]="languagesList$ | async"></base-languages-list>
+  </mat-tab>
+</mat-tab-group>
+
+

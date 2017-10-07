@@ -8,8 +8,8 @@ mat-progress-bar {
   z-index: 20;
 }
 
-mat-toolbar {
-  z-index: 1;
+.top-bar {
+  z-index: 2;
 }
 
 .divider {
@@ -21,8 +21,6 @@ mat-toolbar {
 }
 
 .main-content {
-  // height: 100%;
-  padding: 2em;
   flex: 1;
   display: flex;
   flex-flow: column;

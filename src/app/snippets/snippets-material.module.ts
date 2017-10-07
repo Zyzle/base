@@ -1,22 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
-import { MatIconModule, MatPaginatorModule, MatSortModule, MatTableModule, MatTooltipModule } from '@angular/material';
+import { MatIconModule, MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule, MatTabsModule,
+  MatToolbarModule, MatTooltipModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CdkTableModule,
     MatIconModule,
+    MatInputModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
     MatTooltipModule
   ],
   exports: [
     CdkTableModule,
     MatIconModule,
+    MatInputModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
     MatTooltipModule
   ]
 })

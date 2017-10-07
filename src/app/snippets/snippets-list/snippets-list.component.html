@@ -1,33 +1,46 @@
-<mat-table #table [dataSource]="snippetsSource" matSort>
+<div class="container">
 
-  <ng-container cdkColumnDef="image">
-    <mat-header-cell *cdkHeaderCellDef>Language</mat-header-cell>
-    <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.languageAlias)" class="table-image" /></mat-cell>
-  </ng-container>
+  <div>
+    <mat-form-field>
+      <!-- <mat-icon matPrefix>search</mat-icon> -->
+      <input matInput #filter placeholder="Search">
+    </mat-form-field>
+  </div>
 
-  <ng-container cdkColumnDef="name">
-    <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
-    <mat-cell *cdkCellDef="let row" [matTooltip]="row.description">{{ row.name }}</mat-cell>
-  </ng-container>
+  <div class="mat-elevation-z2">
 
-  <ng-container cdkColumnDef="score">
-    <mat-header-cell *cdkHeaderCellDef>Score</mat-header-cell>
-    <mat-cell *cdkCellDef="let row">{{ row.score }}</mat-cell>
-  </ng-container>
+    <mat-table #table [dataSource]="snippetsSource" matSort>
 
-  <ng-container cdkColumnDef="updated">
-    <mat-header-cell *cdkHeaderCellDef>Last Updated</mat-header-cell>
-    <mat-cell *cdkCellDef="let row">{{ row.updatedDate | date }}</mat-cell>
-  </ng-container>
+      <ng-container cdkColumnDef="image">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header>Language</mat-header-cell>
+        <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.languageAlias)" class="table-image" /></mat-cell>
+      </ng-container>
 
-  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+      <ng-container cdkColumnDef="name">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *cdkCellDef="let row" [matTooltip]="row.description">{{ row.name }}</mat-cell>
+      </ng-container>
 
-</mat-table>
+      <ng-container cdkColumnDef="score">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header>Score</mat-header-cell>
+        <mat-cell *cdkCellDef="let row">{{ row.score }}</mat-cell>
+      </ng-container>
 
-<mat-paginator #paginator
-  [length]="snippetsDatabase.data.length"
-  [pageIndex]="0"
-  [pageSize]="25"
-  [pageSizeOptions]="[10, 25, 50, 100]">
-</mat-paginator>
+      <ng-container cdkColumnDef="updated">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header>Last Updated</mat-header-cell>
+        <mat-cell *cdkCellDef="let row">{{ row.updatedDate | date }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *cdkRowDef="let row; columns: displayedColumns;" [routerLink]="[row.$key]"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator #paginator
+      [length]="snippetsDatabase.data.length"
+      [pageIndex]="0"
+      [pageSize]="25"
+      [pageSizeOptions]="[10, 25, 50, 100]">
+    </mat-paginator>
+  </div>
+</div>

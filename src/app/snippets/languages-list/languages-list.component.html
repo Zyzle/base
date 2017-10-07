@@ -1,28 +1,31 @@
-<mat-table #table [dataSource]="languagesSource" matSort>
+<div class="mat-elevation-z2 container">
+  <mat-table #table [dataSource]="languagesSource" matSort>
 
-  <ng-container cdkColumnDef="image">
-    <mat-header-cell *cdkHeaderCellDef>Image</mat-header-cell>
-    <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.alias)" class="table-image" /></mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="image">
+      <mat-header-cell *cdkHeaderCellDef>Image</mat-header-cell>
+      <mat-cell *cdkCellDef="let row"><img [src]="getSvgPath(row.alias)" class="table-image" /></mat-cell>
+    </ng-container>
 
-  <ng-container cdkColumnDef="alias">
-    <mat-header-cell *cdkHeaderCellDef>Alias</mat-header-cell>
-    <mat-cell *cdkCellDef="let row">{{ row.alias }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="alias">
+      <mat-header-cell *cdkHeaderCellDef>Alias</mat-header-cell>
+      <mat-cell *cdkCellDef="let row">{{ row.alias }}</mat-cell>
+    </ng-container>
 
-  <ng-container cdkColumnDef="displayName">
-    <mat-header-cell *cdkHeaderCellDef>Display Name</mat-header-cell>
-    <mat-cell *cdkCellDef="let row">{{ row.displayName }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="displayName">
+      <mat-header-cell *cdkHeaderCellDef>Display Name</mat-header-cell>
+      <mat-cell *cdkCellDef="let row">{{ row.displayName }}</mat-cell>
+    </ng-container>
 
-  <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
 
-</mat-table>
+  </mat-table>
 
-<mat-paginator #paginator
-  [length]="languagesDatabase.data.length"
-  [pageIndex]="0"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 50]">
-</mat-paginator>
+  <mat-paginator #paginator
+    [length]="languagesDatabase.data.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 50]">
+  </mat-paginator>
+
+</div>

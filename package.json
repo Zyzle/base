@@ -1,6 +1,6 @@
 {
   "name": "base",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,8 @@
     "e2e": "ng e2e",
     "travis": "ng test --singleRun -cc --progress=false",
     "build-deploy": "ng build --prod --aot --build-optimizer --progress=false",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "doc": "compodoc -p ./src/tsconfig.app.json -d ./docs/ -n 'Base' --theme Readthedocs"
   },
   "private": true,
   "dependencies": {
