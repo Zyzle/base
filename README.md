@@ -1,5 +1,7 @@
 # Base
 
+**THIS PROJECT IS SUPER OLD, DONT LOOK AT IT**
+
 [![Build Status](https://travis-ci.org/Zyzle/base.svg?branch=master)](https://travis-ci.org/Zyzle/base)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d39be36d6aa64a81a597397ff827056e)](https://www.codacy.com/app/n1l0c2501/base?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Zyzle/base&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d39be36d6aa64a81a597397ff827056e)](https://www.codacy.com/app/n1l0c2501/base?utm_source=github.com&utm_medium=referral&utm_content=Zyzle/base&utm_campaign=Badge_Coverage)
